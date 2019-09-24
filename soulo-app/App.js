@@ -4,7 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>soulo App</Text>
+  
     </View>
   );
 }
@@ -12,7 +13,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    fontSize: 80,
+    color:'#ffffff',
+    backgroundColor:'#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
   },
