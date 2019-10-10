@@ -1,22 +1,45 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { Text } from "react-native";
+import styled from "styled-components";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>soulo App</Text>
-  
-    </View>
-  );
+export default class App extends React.Component {
+  render() {
+    return (
+      <Container>
+        <TitleBar>
+          <Avatar source={require("./assets/orange.jpg")} />
+          <Title>soulo</Title>
+          <Name>Team Orange</Name>
+        </TitleBar>
+      </Container>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    fontSize: 80,
-    color:'#ffffff',
-    backgroundColor:'#ffffff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Avatar = styled.Image`
+  width: 44px;
+  height: 44px;
+  background: black;
+  border-radius: 22px;
+  margin-left: 20px;
+`;
+const Container = styled.View`
+  background: #f0f2f5;
+  flex: 1;
+`;
+
+const Title = styled.Text`
+  font-size: 36px;
+  color: #b8bece;
+`;
+const Name = styled.Text`
+  font-size: 20px;
+  color: #3c4560;
+  font-weight: bold;
+`;
+
+const TitleBar = styled.View`
+  width: 100%;
+  margin-top: 50px;
+  padding-left: 20px;
+`;
