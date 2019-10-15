@@ -23,7 +23,7 @@ export default class App extends React.Component {
           />
 
           <Card
-            title="Captain    Hunch "
+            title="Captain   Hunch "
             image={require("./assets/test2.jpg")}
             caption="April Jane"
             subtitle="live"
@@ -45,6 +45,7 @@ const Avatar = styled.Image`
   top: 0;
   left: 0;
 `;
+
 const Container = styled.View`
   background: #f0f2f5;
   flex: 1;
