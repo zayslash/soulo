@@ -11,7 +11,13 @@ function userProfile(props) {
           alt="cover-img"
         />
       </div>
-      <p></p>
+      <div className="userInfo">
+        <p>
+          <h1>Jaime Right</h1>
+        </p>
+        <p>New York,United States</p>
+        <p>About</p>
+      </div>
     </div>
   );
 }
