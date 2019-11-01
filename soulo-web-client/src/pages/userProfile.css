@@ -1,0 +1,17 @@
+.headerCover {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+
+  /* border: 1px solid black; */
+}
+.MainContainer {
+  padding-top: 90px;
+  padding-left: 90px;
+}
+.profile-img {
+  height: 100%;
+  width: 100%;
+}

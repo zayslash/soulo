@@ -11,6 +11,7 @@ import "./App.css";
 
 import greetingPage from "./pages/greetingPage";
 import loginPage from "./pages/loginPage";
+import userProfile from "./pages/userProfile";
 
 function Navigation(props) {
   return (
@@ -46,6 +47,7 @@ class App extends React.Component {
             <Switch>
               {/* <Route path="/posts/:id" component={ShowPostPage} /> */}
               {/* <Route path="/about-us" component={AboutUsPage} /> */}
+              <Route path="/profile" component={userProfile} />
               <Route path="/login" component={loginPage} />
               <Route path="/" component={greetingPage} />
             </Switch>
