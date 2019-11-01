@@ -4,6 +4,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 50%;
+  float: left;
 
   /* border: 1px solid black; */
 }
@@ -14,4 +15,9 @@
 .profile-img {
   height: 100%;
   width: 100%;
+}
+
+.userInfo {
+  padding-left: 250px;
+  padding-right: 250px;
 }
