@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "formik": "^1.5.8",
     "react": "^16.10.2",
+    "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.10.2",
     "react-hook-form": "^3.24.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.2.0",
-    "sequelize-cli": "^5.5.1"
+    "sequelize-cli": "^5.5.1",
+    "yup": "^0.27.0"
   },
   "scripts": {
     "start": "react-scripts start",

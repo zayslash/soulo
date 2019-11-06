@@ -4,13 +4,33 @@ import "./loginPage.css";
 import TextInput from "../common/textInput";
 import validate from "../common/validate";
 
-class LoginPage extends React.Component {
+class SignUpPage extends React.Component {
   constructor() {
     super();
     this.state = {
       formIsValid: false, //we will use this to track the overall form validity
 
       formControls: {
+        first_name: {
+          value: "",
+          placeholder: "First Name",
+          valid: false,
+          touched: false,
+          validationRules: {
+            minLength: 3,
+            isRequired: true
+          }
+        },
+        last_name: {
+          value: "",
+          placeholder: "Last Name",
+          valid: false,
+          touched: false,
+          validationRules: {
+            minLength: 3,
+            isRequired: true
+          }
+        },
         email: {
           value: "",
           placeholder: "Email",
@@ -55,7 +75,6 @@ class LoginPage extends React.Component {
     let formIsValid = true;
     for (let inputIdentifier in updatedControls) {
       formIsValid = updatedControls[inputIdentifier].valid && formIsValid;
-      console.log(updatedControls[inputIdentifier]);
     }
 
     this.setState({
@@ -76,6 +95,24 @@ class LoginPage extends React.Component {
     return (
       <div className="Container">
         <form>
+          <TextInput
+            name="first_name"
+            type={"text"}
+            placeholder={this.state.formControls.first_name.placeholder}
+            value={this.state.formControls.first_name.value}
+            onChange={this.changeHandler}
+            touched={this.state.formControls.first_name.touched}
+            valid={this.state.formControls.first_name.value}
+          />
+          <TextInput
+            name="last_name"
+            type={"text"}
+            placeholder={this.state.formControls.last_name.placeholder}
+            value={this.state.formControls.last_name.value}
+            onChange={this.changeHandler}
+            touched={this.state.formControls.last_name.touched}
+            valid={this.state.formControls.last_name.value}
+          />
           <TextInput
             name="email"
             type={"email"}
@@ -107,4 +144,4 @@ class LoginPage extends React.Component {
   }
 }
 
-export default LoginPage;
+export default SignUpPage;

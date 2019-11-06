@@ -30,6 +30,16 @@
   box-sizing: border-box;
 }
 
+.form-control {
+  width: 50%;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.control-error {
+  border: 1px solid red;
+}
+
 input[type="submit"] {
   width: 100%;
   background-color: #ff5500;
