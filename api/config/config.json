@@ -2,7 +2,7 @@
     "development": {
       "username": "soulo_user",
       "password": "soulo_pass",
-      "database": "soulo_database_development",
+      "database": "soulo_db",
       "host": "127.0.0.1",
       "dialect": "postgres"
     },

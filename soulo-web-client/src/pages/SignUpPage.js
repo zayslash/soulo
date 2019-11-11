@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
 import "./loginPage.css";
-import TextInput from "../common/textInput";
+import TextInput from "../common/TextInput";
 import validate from "../common/validate";
+import auth from "../services/auth";
 
 class SignUpPage extends React.Component {
   constructor() {
@@ -83,18 +84,23 @@ class SignUpPage extends React.Component {
     });
   };
 
-  formSubmitHandler = () => {
+  formSubmitHandler = (e) => {
+    e.preventDefault();
     const formData = {};
     for (let formElementId in this.state.formControls) {
       formData[formElementId] = this.state.formControls[formElementId].value;
     }
     console.dir(formData);
+    auth.signup(formData)
+    .then(response => {
+      console.log(response);
+    })
   };
 
   render() {
     return (
       <div className="Container">
-        <form>
+        <form onSubmit={this.formSubmitHandler}>
           <TextInput
             name="first_name"
             type={"text"}
@@ -136,7 +142,6 @@ class SignUpPage extends React.Component {
             type="submit"
             name="login"
             disabled={!this.state.formIsValid}
-            onClick={this.formSubmitHandler}
           />
         </form>
       </div>

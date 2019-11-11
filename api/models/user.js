@@ -6,14 +6,14 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {}
 
   User.init({
-    first_name: {
+    firstName: {
       type: DataTypes.STRING,
       validate: {
         len: [3, 15],
         notEmpty: true,
       }
     },
-    last_name: {
+    lastName: {
       type: DataTypes.STRING,
       validate: {
         len: [3, 15],
@@ -43,15 +43,15 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
     },
-    follows: {
-      type: DataTypes.User,
-    },
-    follewers: {
-      type: DataTypes.User,
-    },
-    recents: {
-      type: DataTypes.User,
-    },
+    // follows: {
+    //   type: DataTypes.User,
+    // },
+    // follewers: {
+    //   type: DataTypes.User,
+    // },
+    // recents: {
+    //   type: DataTypes.User,
+    // },
     tags: {
       type: DataTypes.STRING,
     },
