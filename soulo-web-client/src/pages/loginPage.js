@@ -3,7 +3,8 @@ import React from "react";
 import "./loginPage.css";
 import TextInput from "../common/textInput";
 import validate from "../common/validate";
-import auth from '../services/auth';
+import auth from "../services/auth";
+import { NavLink } from "react-router-dom";
 
 class LoginPage extends React.Component {
   constructor() {
@@ -65,17 +66,16 @@ class LoginPage extends React.Component {
   };
 
   formSubmitHandler = e => {
-    e.preventDefault(); 
+    e.preventDefault();
     const formData = {};
     for (let formElementId in this.state.formControls) {
       formData[formElementId] = this.state.formControls[formElementId].value;
     }
     console.dir(formData);
-    const {email, password} = formData;
-    auth.authenticate(email, password)
-    .then(response => {
+    const { email, password } = formData;
+    auth.authenticate(email, password).then(response => {
       console.log(response);
-    })
+    });
   };
 
   render() {
@@ -107,6 +107,12 @@ class LoginPage extends React.Component {
             disabled={!this.state.formIsValid}
           />
         </form>
+        <div>
+          <p> Not a member? </p>
+          <NavLink className="nav-link" exact to="/signup">
+            signup
+          </NavLink>
+        </div>
       </div>
     );
   }
