@@ -12,20 +12,22 @@ function loginPage(props) {
   };
 
   return (
-    <div className="Container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label for="fname">Username</label>
-        <input className="userField" name="Username" ref={register} />
-        <label for="fname">Password</label>
-        <input
-          className="userField"
-          name="Password"
-          type="password"
-          ref={register({ required: true })}
-        />
-        {errors.Password && "Password is required."}
-        <input type="submit" name="login" />
-      </form>
+    <div className="background-image">
+      <div className="loginContainer">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label for="fname">Username</label>
+          <input className="userField" name="Username" ref={register} />
+          <label for="fname">Password</label>
+          <input
+            className="userField"
+            name="Password"
+            type="password"
+            ref={register({ required: true })}
+          />
+          {errors.Password && "Password is required."}
+          <input type="submit" name="login" />
+        </form>
+      </div>
     </div>
   );
 }

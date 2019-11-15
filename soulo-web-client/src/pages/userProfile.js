@@ -1,6 +1,8 @@
 import React from "react";
 import "./userProfile.css";
+
 // import Card from "../components/Card.js";
+// import AudioPlayer from "../components/AudioPlayer.js";
 
 function Card(props) {
   return (
@@ -66,6 +68,8 @@ function userProfile(props) {
           logo={require("../orange.jpg")}
         />
       </div>
+
+      {/* <AudioPlayer /> */}
     </div>
   );
 }
