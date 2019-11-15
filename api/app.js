@@ -13,8 +13,8 @@ const PORT = process.env.PORT || 8000;
 app.use(bodyParser.json())
 
 // setup passport and session cookies
-app.use(expressSession({ 
-  secret: process.env.SESSION_SECRET, 
+app.use(expressSession({
+  secret: process.env.SESSION_SECRET || "akjehfobsofb0wef0099349G", 
   resave: false,
   saveUninitialized: true }));
 app.use(passport.initialize());
