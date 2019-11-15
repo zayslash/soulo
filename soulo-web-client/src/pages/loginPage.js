@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
 import "./loginPage.css";
-import TextInput from "../common/TextInput";
+import TextInput from "../common/textInput";
 import validate from "../common/validate";
 import auth from '../services/auth';
 
