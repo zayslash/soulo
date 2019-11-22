@@ -42,16 +42,7 @@ module.exports = (sequelize, DataTypes) => {
           }
         }
       },
-    },
-    // follows: {
-    //   type: DataTypes.User,
-    // },
-    // follewers: {
-    //   type: DataTypes.User,
-    // },
-    // recents: {
-    //   type: DataTypes.User,
-    // },
+        },
     tags: {
       type: DataTypes.STRING,
     },
