@@ -32,6 +32,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     passwordHash: {
       type: DataTypes.STRING,
+      validate: {
+        notEmpty: true,
+      }
     },
     password: {
       type: DataTypes.VIRTUAL,
@@ -56,9 +59,7 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   User.beforeSave((user, options) => {
-    if(user.recentspassword) {
       user.passwordHash = bcrypt.hashSync(user.password, 10);
-    }
   });
 
   return User;

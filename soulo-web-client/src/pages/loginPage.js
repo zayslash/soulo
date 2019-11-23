@@ -5,6 +5,8 @@ import TextInput from "../common/textInput";
 import validate from "../common/validate";
 import auth from "../services/auth";
 import { NavLink } from "react-router-dom";
+import{ Redirect } from 'react-router-dom';
+import UserProfile from "./UserProfile";
 
 class LoginPage extends React.Component {
   constructor() {
@@ -65,6 +67,12 @@ class LoginPage extends React.Component {
     });
   };
 
+  renderRedirect() {
+    if (auth.isAuthenticated) {
+      return <Redirect to="/profile" component={UserProfile}/>;
+    }
+  }
+
   formSubmitHandler = e => {
     e.preventDefault();
     const formData = {};
@@ -73,14 +81,14 @@ class LoginPage extends React.Component {
     }
     console.dir(formData);
     const { email, password } = formData;
-    auth.authenticate(email, password).then(response => {
-      console.log(response);
-    });
+    auth.authenticate(email, password);
+
   };
 
   render() {
     return (
       <div className="Container">
+        { this.renderRedirect() }
         <form onSubmit={this.formSubmitHandler}>
           <TextInput
             name="email"

@@ -10,7 +10,10 @@ import "./App.css";
 import greetingPage from "./pages/greetingPage";
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/SignUpPage";
-import userProfile from "./pages/userProfile";
+import UserProfile from "./pages/UserProfile";
+import PrivateRoute from "./components /PrivateRoute";
+import AuthButton from "./components /AuthButton";
+import auth from "./services/auth";
 
 function Navigation() {
   return (
@@ -20,6 +23,7 @@ function Navigation() {
           <NavLink className="navbar-brand nav-link2 " exact to="/">
             <img alt="soulo" className="App-logo" src={require("./logo.png")} />
           </NavLink>
+          {!auth.isAuthenticated && <AuthButton />}
         </li>
       </ul>
     </nav>
@@ -51,7 +55,7 @@ class App extends React.Component {
             <Switch>
               {/* <Route path="/posts/:id" component={ShowPostPage} /> */}
               {/* <Route path="/about-us" component={AboutUsPage} /> */}
-              <Route path="/profile" component={userProfile} />
+              <PrivateRoute path="/profile" component={UserProfile} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
               <Route path="/" component={greetingPage} />

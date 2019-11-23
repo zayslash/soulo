@@ -27,7 +27,7 @@ passport.use(new LocalStrategy({
           return done(null, false, { message: 'Failed Login' });
         }
         
-        if(passwordsMatch(password, user.passwordHash) === false) {
+        if(!passwordsMatch(password, user.passwordHash)) {
           console.log('\n\nFailed Login: passwords did not match\n\n');
           return done(null, false, { message: 'Failed Login' });
         }
@@ -57,12 +57,6 @@ passport.deserializeUser((id, done) => {
     .catch(err => done(err, null));
 });
 
-// passport.redirectIfLoggedIn = (route) =>
-//   (req, res, next) => (req.user ? res.redirect(route) : next());
-
-// passport.redirectIfNotLoggedIn = (route) =>
-//   (req, res, next) => (req.user ? next() : res.redirect(route));
-// Use this protect api routes that require a user to be logged in.
 passport.isAuthenticated = () => 
   (req, res, next) => (req.user ? next() : res.sendStatus(401));
 

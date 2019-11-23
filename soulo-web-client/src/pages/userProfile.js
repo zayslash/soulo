@@ -1,7 +1,7 @@
 import React from "react";
-import "./userProfile.css";
+import "./UserProfile.css";
 
-function userProfile(props) {
+function UserProfile(props) {
   return (
     <div className="MainContainer">
       <div className="headerCover">
@@ -13,13 +13,13 @@ function userProfile(props) {
       </div>
       <div className="userInfo">
         <p>
-          <h1>Jaime Right</h1>
+          {/* <h1> {props.name} </h1> */}
         </p>
-        <p>New York,United States</p>
-        <p>About</p>
+        <p> New York,United States </p>
+        <p> About </p>
       </div>
     </div>
   );
 }
 
-export default userProfile;
+export default UserProfile;

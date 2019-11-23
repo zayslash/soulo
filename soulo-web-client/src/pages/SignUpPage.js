@@ -90,10 +90,9 @@ class SignUpPage extends React.Component {
     for (let formElementId in this.state.formControls) {
       formData[formElementId] = this.state.formControls[formElementId].value;
     }
-    console.dir(formData);
     auth.signup(formData)
     .then(response => {
-      console.log(response);
+      // console.log(response);
     })
   };
 
