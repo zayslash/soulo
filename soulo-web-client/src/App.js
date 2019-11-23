@@ -23,7 +23,7 @@ function Navigation() {
           <NavLink className="navbar-brand nav-link2 " exact to="/">
             <img alt="soulo" className="App-logo" src={require("./logo.png")} />
           </NavLink>
-          {!auth.isAuthenticated && <AuthButton />}
+          {console.log(auth.isAuthenticated)}
         </li>
       </ul>
     </nav>
@@ -53,9 +53,7 @@ class App extends React.Component {
         <div className="container-fluid text-center">
           <div className="row justify-content-center">
             <Switch>
-              {/* <Route path="/posts/:id" component={ShowPostPage} /> */}
-              {/* <Route path="/about-us" component={AboutUsPage} /> */}
-              <PrivateRoute path="/profile" component={UserProfile} />
+              <PrivateRoute exact path="/profile" component={UserProfile} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
               <Route path="/" component={greetingPage} />

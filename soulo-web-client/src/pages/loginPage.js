@@ -79,7 +79,6 @@ class LoginPage extends React.Component {
     for (let formElementId in this.state.formControls) {
       formData[formElementId] = this.state.formControls[formElementId].value;
     }
-    console.dir(formData);
     const { email, password } = formData;
     auth.authenticate(email, password);
 
@@ -98,7 +97,7 @@ class LoginPage extends React.Component {
             onChange={this.changeHandler}
             touched={this.state.formControls.email.touched}
             valid={this.state.formControls.email.value}
-          />
+            />
           <TextInput
             name="password"
             type={"password"}

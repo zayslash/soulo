@@ -3,13 +3,14 @@ import { withRouter, Link } from "react-router-dom";
 
 import auth from "../services/auth";
 import UserProfile from "../pages/UserProfile";
-import{ Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import LoginPage from "../pages/loginPage";
 
 const classes = "btn btn-primary";
 
 const AuthButton = withRouter(({ history }) => {
   if (!auth.isAuthenticated) {
-    return <Redirect to="/profile" component={UserProfile}/>;
+    return <Redirect to="/login" component={LoginPage}/>;
   }
 
   const logout = () => {
@@ -18,7 +19,7 @@ const AuthButton = withRouter(({ history }) => {
 
   return (
     <div>
-      <UserProfile />
+      <Redirect to="/profile" component={UserProfile}/>
       <button className={classes} onClick={logout}>
         Logout
       </button>

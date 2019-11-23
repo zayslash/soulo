@@ -1,8 +1,8 @@
 import React from "react";
 import "./greetingPage.css";
-import LoginPage from "./loginPage";
+import AuthButton from "../components /AuthButton";
 
-function greetingPage(props) {
+function greetingPage() {
   return (
     <div className="MainContainer">
       <h1>Create your own radio Experience</h1>
@@ -11,7 +11,7 @@ function greetingPage(props) {
         tune in to your shows.
       </p>
       <div className="Title-text">
-        <LoginPage />
+        <AuthButton />
       </div>
     </div>
   );
