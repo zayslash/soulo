@@ -12,9 +12,7 @@ function UserProfile(props) {
         />
       </div>
       <div className="userInfo">
-        <p>
-          {/* <h1> {props.name} </h1> */}
-        </p>
+        <p>{/* <h1> {props.name} </h1> */}</p>
         <p> New York,United States </p>
         <p> About </p>
       </div>

@@ -84,16 +84,13 @@ class SignUpPage extends React.Component {
     });
   };
 
-  formSubmitHandler = (e) => {
+  formSubmitHandler = e => {
     e.preventDefault();
     const formData = {};
     for (let formElementId in this.state.formControls) {
       formData[formElementId] = this.state.formControls[formElementId].value;
     }
-    auth.signup(formData)
-    .then(response => {
-      // console.log(response);
-    })
+    auth.signup(formData);
   };
 
   render() {

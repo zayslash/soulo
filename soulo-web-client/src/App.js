@@ -11,7 +11,7 @@ import greetingPage from "./pages/greetingPage";
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/SignUpPage";
 import UserProfile from "./pages/UserProfile";
-import PrivateRoute from "./components /PrivateRoute";
+import UploadSongs from "./pages/UploadSongs";
 import auth from "./services/auth";
 
 function Navigation() {
@@ -52,7 +52,8 @@ class App extends React.Component {
         <div className="container-fluid text-center">
           <div className="row justify-content-center">
             <Switch>
-              <PrivateRoute exact path="/profile" component={UserProfile} />
+              <Route path="/profile" component={UserProfile} />
+              <Route path="/upload" component={UploadSongs} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
               <Route path="/" component={greetingPage} />

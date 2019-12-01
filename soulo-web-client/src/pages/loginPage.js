@@ -5,8 +5,6 @@ import TextInput from "../common/textInput";
 import validate from "../common/validate";
 import auth from "../services/auth";
 import { NavLink } from "react-router-dom";
-import { Redirect } from "react-router-dom";
-import UserProfile from "./UserProfile";
 
 class LoginPage extends React.Component {
   constructor() {

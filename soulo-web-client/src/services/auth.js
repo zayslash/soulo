@@ -1,4 +1,4 @@
-// This service object was adapted from here: 
+// This service object was adapted from here:
 //  https://tylermcginnis.com/react-router-protected-routes-authentication/
 //
 // This version was modified to use real authentication implemented
@@ -8,64 +8,64 @@
 const auth = {
   isAuthenticated: false,
   authenticate(email, password) {
-    return fetch('/api/auth/login', { 
-      method: 'POST',
+    return fetch("/api/auth/login", {
+      method: "POST",
       body: JSON.stringify({ email, password }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json"
       }
     })
-      .then((response) => {
-        if(!response.ok) {
-          throw new Error('Login Failed');
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Login Failed");
         }
         return response.json();
       })
-      .then((body) => {
+      .then(body => {
         this.isAuthenticated = true;
         return body;
       });
   },
   signup(formData) {
-      return fetch('/api/auth/signup', {
-          method: 'POST', 
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-      })
-      .then((response) => {
-          console.log(response);
-          if (!response.ok) {
-              throw new Error('Registration Failed');
-          }
-          return response.json();
+    return fetch("/api/auth/signup", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(response => {
+        console.log(response);
+        if (!response.ok) {
+          throw new Error("Registration Failed");
+        }
+        return response.json();
       })
       .then(body => {
-          this.isAuthenticated = true;
-          return body;
+        this.isAuthenticated = true;
+        return body;
       });
   },
   signout(cb) {
-    return fetch('/api/auth/logout', { 
-      method: 'POST',
+    return fetch("/api/auth/logout", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json"
       }
     })
-      .then((response) => {
-        if(!response.ok) {
-          throw new Error('Logout Failed');
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Logout Failed");
         }
 
         return response.json();
       })
-      .then((body) => {
+      .then(body => {
         this.isAuthenticated = false;
         return body;
       });
   }
-}
+};
 
 export default auth;
