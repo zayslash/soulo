@@ -12,7 +12,6 @@ import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/SignUpPage";
 import UserProfile from "./pages/UserProfile";
 import PrivateRoute from "./components /PrivateRoute";
-import AuthButton from "./components /AuthButton";
 import auth from "./services/auth";
 
 function Navigation() {
