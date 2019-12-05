@@ -1,0 +1,130 @@
+@import "variables";
+
+#player {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $player-bg;
+  padding: 1rem;
+  color: $main-color;
+  .middle-part {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    .progress,
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+    }
+    .controls {
+      width: 15rem;
+      margin: 0 auto 0.5rem;
+      button {
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+        &.play {
+          width: 3rem;
+          height: 3rem;
+          line-height: 3rem;
+          font-size: 2rem;
+        }
+        &.loop,
+        &.shuffle {
+          &.active {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+    .progress {
+      .bar {
+        background-color: $progress-bg;
+        border-radius: 2px;
+        display: flex;
+        height: 4px;
+        width: 100%;
+        flex: 1 100%;
+        cursor: pointer;
+        div {
+          border-radius: 2px;
+          height: 4px;
+          width: 50%;
+          background: $current-progress-color;
+        }
+      }
+      .progress-time {
+        font-size: 11px;
+        line-height: 16px;
+        letter-spacing: 0.015em;
+        min-width: 40px;
+        text-align: center;
+      }
+    }
+  }
+  .now-playing,
+  .volume-bar {
+    display: flex;
+    width: 25%;
+  }
+  .now-playing {
+    justify-content: flex-start;
+    align-items: center;
+    img {
+      display: block;
+      width: 4rem;
+      height: 4rem;
+      object-fit: contain;
+      margin-right: 1rem;
+    }
+    .meta {
+      display: flex;
+      flex-direction: column;
+      flex: 1 100%;
+      margin-right: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      .title {
+        color: $title-color;
+        font-size: 0.95rem;
+      }
+      .artist-name {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .volume-bar {
+    justify-content: flex-end;
+    align-items: center;
+    button {
+      margin-right: 0.5rem;
+      width: 1rem;
+      i {
+        float: left;
+      }
+    }
+    .fill {
+      background-color: $progress-bg;
+      border-radius: 2px;
+      display: flex;
+      height: 4px;
+      width: 8rem;
+      cursor: pointer;
+      div {
+        border-radius: 2px;
+        height: 4px;
+        width: 50%;
+        background: $current-progress-color;
+      }
+    }
+  }
+}

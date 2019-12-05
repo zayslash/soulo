@@ -1,6 +1,6 @@
 import React from "react";
 import "./userProfile.css";
-import Player from "../components/Player";
+import Player from "../services/Player";
 function UserProfile(props) {
   return (
     <div className="MainContainer">

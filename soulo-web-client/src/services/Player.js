@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import songlist from "../songs";
+import "./playerStyle/_global.scss";
+import "./playerStyle/main.scss";
+import "./playerStyle/_variables.scss";
+import "./playerStyle/_player.scss";
+
+// import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 
 class Player extends Component {
   constructor(props) {
