@@ -1,6 +1,6 @@
 import React from "react";
-import "./UserProfile.css";
-
+import "./userProfile.css";
+import Player from "../components/Player";
 function UserProfile(props) {
   return (
     <div className="MainContainer">
@@ -15,6 +15,9 @@ function UserProfile(props) {
         <p>{/* <h1> {props.name} </h1> */}</p>
         <p> New York,United States </p>
         <p> About </p>
+      </div>
+      <div className="audio_player_container">
+        <Player />
       </div>
     </div>
   );
