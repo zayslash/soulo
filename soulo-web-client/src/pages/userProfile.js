@@ -18,7 +18,15 @@ function UserProfile(props) {
         <p>{props.location}</p>
         <br />
         <p> {props.about} </p>
+        <br />
+        <div className="userStats">
+          <p>
+            <h2>{props.followerCount} 28 followers</h2>
+            <h2>{props.plays} 245 plays</h2>
+          </p>
+        </div>
       </div>
+
       {/* <P5Wrapper sketch={sketch} /> */}
 
       <div className="audio_player_container">
