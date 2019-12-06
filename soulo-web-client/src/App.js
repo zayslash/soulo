@@ -52,7 +52,18 @@ class App extends React.Component {
         <div className="container-fluid text-center">
           <div className="row justify-content-center">
             <Switch>
-              <Route path="/profile" component={UserProfile} />
+              <Route
+                path="/profile"
+                render={props => (
+                  <UserProfile
+                    {...props}
+                    name={"Mathhew"}
+                    location={"New York,United States"}
+                    about={"A breif description of the User and channel"}
+                    profileImage={require("./test.JPG")}
+                  />
+                )}
+              />
               <Route path="/upload" component={UploadSongs} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
