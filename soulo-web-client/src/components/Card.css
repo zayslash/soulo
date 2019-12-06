@@ -1,0 +1,44 @@
+.Cont {
+  background: white;
+  width: 10%;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 4px;
+  padding: 12px;
+}
+
+.Cover {
+  width: 80px;
+  height: 100px;
+}
+
+.Image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.Content {
+  flex-direction: row;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 50px;
+}
+
+.Caption {
+  color: #3c4560;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.Subtitle {
+  color: #b8bece;
+  font-weight: 600;
+  font-size: 15;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.Wrapper {
+  margin-left: 0px;
+}

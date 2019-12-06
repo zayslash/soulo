@@ -10,6 +10,7 @@ import "./App.css";
 import greetingPage from "./pages/greetingPage";
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/SignUpPage";
+import homePage from "./pages/homePage";
 import UserProfile from "./pages/UserProfile";
 import UploadSongs from "./pages/UploadSongs";
 import auth from "./services/auth";
@@ -67,6 +68,7 @@ class App extends React.Component {
               <Route path="/upload" component={UploadSongs} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
+              <Route path="/home" component={homePage} />
               <Route path="/" component={greetingPage} />
             </Switch>
           </div>

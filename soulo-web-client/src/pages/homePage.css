@@ -1,0 +1,24 @@
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.userPosts {
+  margin-top: 80px;
+}
+
+.MainContainer {
+  overflow-x: scroll;
+  width: 100%;
+  margin-top: -70px;
+}
+.IconPopulation {
+  display: inline-flex;
+
+  flex-shrink: 0;
+  margin-left: 3px;
+  margin-bottom: 65px;
+}
+
+.text {
+  margin-top: 40px;
+}
