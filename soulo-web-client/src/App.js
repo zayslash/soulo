@@ -12,6 +12,7 @@ import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
 import UserProfile from "./pages/userProfile";
 import UploadSongs from "./pages/uploadSongs";
+import homePage from "./pages/homePage";
 import auth from "./services/auth";
 
 function Navigation() {
@@ -67,6 +68,7 @@ class App extends React.Component {
               <Route path="/upload" component={UploadSongs} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
+              <Route path="/home" component={homePage} />
               <Route path="/" component={greetingPage} />
             </Switch>
           </div>

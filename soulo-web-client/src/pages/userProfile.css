@@ -18,8 +18,10 @@
 }
 
 .userInfo {
-  padding-left: 250px;
+  padding-left: 25px;
   padding-right: 250px;
+  position: relative;
+  overflow: hidden;
 }
 
 .audio_player_container {
@@ -33,4 +35,15 @@
   padding-top: 30px;
   text-align: center;
   font-size: 10px;
+}
+
+.userStats {
+  color: grey;
+  float: left;
+  /* padding-left: 250px; */
+  padding-right: 250px;
+  /* margin-top: -70px; */
+
+  position: relative;
+  overflow: hidden;
 }

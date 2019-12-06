@@ -1,0 +1,21 @@
+.MainContainer {
+  margin-bottom: 45px;
+}
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.nickname {
+  margin-left: 12px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+}
+.image {
+  display: block;
+  width: 50%;
+}
+.caption {
+  padding: 16px 16px;
+  font-family: "PT Sans", sans-serif;
+}

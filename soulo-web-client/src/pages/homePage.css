@@ -1,0 +1,21 @@
+.userPosts {
+  margin-top: 80px;
+}
+
+.HomeContainer {
+  /* width: 100%; */
+  margin-top: -70px;
+}
+.IconPopulation {
+  height: 120px;
+  display: flex;
+  float: right;
+  flex-shrink: 0;
+  margin-left: 3px;
+  margin-bottom: 65px;
+  width: 100%;
+}
+
+.text {
+  margin-top: 40px;
+}
