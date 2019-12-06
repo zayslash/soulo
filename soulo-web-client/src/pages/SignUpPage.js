@@ -4,6 +4,7 @@ import "./loginPage.css";
 import TextInput from "../common/textInput";
 import validate from "../common/validate";
 import auth from "../services/auth";
+import { NavLink } from "react-router-dom";
 
 class SignUpPage extends React.Component {
   constructor() {
@@ -140,6 +141,15 @@ class SignUpPage extends React.Component {
             disabled={!this.state.formIsValid}
           />
         </form>
+
+        <div>
+          <p>
+            Already a member?
+            <NavLink className="nav-link" exact to="/login">
+              login
+            </NavLink>
+          </p>
+        </div>
       </div>
     );
   }

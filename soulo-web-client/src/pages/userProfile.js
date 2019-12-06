@@ -1,6 +1,10 @@
 import React from "react";
 import "./userProfile.css";
 import Player from "../services/Player";
+
+// import P5Wrapper from "react-p5-wrapper";
+// import sketch from "../components/spectrumAnalyzer.js";
+
 function UserProfile(props) {
   return (
     <div className="MainContainer">
@@ -16,6 +20,8 @@ function UserProfile(props) {
         <p> New York,United States </p>
         <p> About </p>
       </div>
+      {/* <P5Wrapper sketch={sketch} /> */}
+
       <div className="audio_player_container">
         <Player />
       </div>

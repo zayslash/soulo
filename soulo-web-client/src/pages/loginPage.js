@@ -108,10 +108,12 @@ class LoginPage extends React.Component {
           />
         </form>
         <div>
-          <p> Not a member? </p>
-          <NavLink className="nav-link" exact to="/signup">
-            signup
-          </NavLink>
+          <p>
+            Not a member?
+            <NavLink className="nav-link" exact to="/signup">
+              signup
+            </NavLink>
+          </p>
         </div>
       </div>
     );
