@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import axios from "axios";
 import { Progress } from "reactstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-class UploadSongs extends Component {
+class UploadSongs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
