@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import storage from "../firebase";
 import { Progress } from "reactstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,8 +8,9 @@ class UploadSongs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedFile: null,
-      loaded: 0
+      selectedFiles: [],
+      loaded: 0,
+      urls: null
     };
   }
 
@@ -82,33 +83,41 @@ class UploadSongs extends React.Component {
     ) {
       // if return true allow to setState
       this.setState({
-        selectedFile: files,
+        selectedFiles: files,
         loaded: 0
       });
     }
   };
 
   onClickHandler = () => {
-    const data = new FormData();
-    for (let i = 0; i < this.state.selectedFile.length; i++) {
-      data.append("file", this.state.selectedFile[i]);
-    }
-    axios
-      .post("/api/upload/", data, {
-        onUploadProgress: ProgressEvent => {
+    const { selectedFiles } = this.state;
+    console.log(selectedFiles);
+    for (let file of selectedFiles) {
+      const uploadTask = storage.ref(`audio/${file.name}`).put(file);
+      uploadTask.on(
+        "state_changed",
+        snapshot => {
+          // Progress function
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           this.setState({
-            loaded: (ProgressEvent.loaded / ProgressEvent.total) * 100
+            loaded: progress
           });
+        },
+        error => {
+          // Error function
+          console.log(error);
+        },
+        () => {
+          // Complete function
+          storage
+            .ref("audio")
+            .child(file.name)
+            .getDownloadURL()
+            .then(url => console.log(url));
         }
-      })
-      .then(res => {
-        // then print response status
-        toast.success("upload success");
-      })
-      .catch(err => {
-        // then print response status
-        toast.error("upload fail");
-      });
+      );
+    }
   };
 
   render() {
