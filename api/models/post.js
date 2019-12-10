@@ -4,7 +4,7 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Music extends Model {}
 
-  Music.init(
+  Post.init(
     {
       title: {
         type: DataTypes.STRING,
@@ -12,27 +12,27 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true
         }
       },
-      url: {
-        type: DataTypes.STRING,
-        validate: {
-          notEmpty: true
-        }
+      description: {
+        type: DataTypes.STRING
       },
       image: {
         type: DataTypes.STRING
       },
-      artistname: {
+      playlist: {
+        type: Sequelize.ARRAY(Sequelize.TEXT)
+      },
+      tag: {
         type: DataTypes.STRING
       }
     },
     {
       sequelize,
-      modelName: "user"
+      modelName: "post"
     }
   );
 
-  Music.associate = models => {
-    models.Music.belongsToMany(models.User);
+  Post.associate = models => {
+    models.Post.belongsTo(models.User);
   };
-  return Music;
+  return Post;
 };
