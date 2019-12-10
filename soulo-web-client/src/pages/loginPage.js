@@ -74,7 +74,7 @@ class LoginPage extends React.Component {
     const { email, password } = formData;
     auth.authenticate(email, password);
     if (auth.isAuthenticated) {
-      this.props.history.push("/");
+      this.props.history.push("/home");
     }
   };
 

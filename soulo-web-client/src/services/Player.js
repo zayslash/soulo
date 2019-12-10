@@ -24,6 +24,7 @@ class Player extends Component {
       loop: false,
       shuffle: false
     };
+
     this.history = [];
     this.player = new Audio();
     this.startPlayer = this.startPlayer.bind(this);
@@ -36,9 +37,11 @@ class Player extends Component {
     this.toggleLoop = this.toggleLoop.bind(this);
     this.toggleShuffle = this.toggleShuffle.bind(this);
   }
+
   startPlayer() {
     const currentSong = songlist[this.state.currentIndex];
     this.player.src = currentSong.src;
+    this.player.load();
     this.setState({
       currentTitle: currentSong.title,
       currentArtist: currentSong.artistname,
@@ -47,6 +50,7 @@ class Player extends Component {
     });
     this.player.play();
   }
+
   PlayOrPause() {
     if (this.player.paused) {
       this.player.play();
@@ -56,6 +60,7 @@ class Player extends Component {
       this.setState({ isplaying: false });
     }
   }
+
   playNext() {
     if (this.state.shuffle) {
       this.history.push(this.state.currentIndex);
@@ -80,6 +85,7 @@ class Player extends Component {
       }
     }
   }
+
   playPrev() {
     if (this.history[this.history.length - 1] >= 0) {
       this.setState({ currentIndex: this.history.pop() }, function() {
@@ -90,6 +96,7 @@ class Player extends Component {
       this.setState({ isplaying: false });
     }
   }
+
   convertTime(seconds) {
     let min = Math.floor(seconds / 60);
     let sec = seconds % 60;
@@ -97,6 +104,7 @@ class Player extends Component {
     sec = sec < 10 ? "0" + sec : sec;
     this.setState({ currentTime: min + ":" + sec });
   }
+
   totalTime(seconds) {
     let min = Math.floor(seconds / 60);
     let sec = seconds % 60;
@@ -104,25 +112,30 @@ class Player extends Component {
     sec = sec < 10 ? "0" + sec : sec;
     this.setState({ totalTime: min + ":" + sec });
   }
+
   onBarClick(e) {
     const offsetX = e.nativeEvent.offsetX;
     const offsetWidth = e.nativeEvent.target.offsetWidth;
     const percent = offsetX / offsetWidth;
     this.player.currentTime = percent * this.player.duration;
   }
+
   onVolumeClick(e) {
     const offsetX = e.nativeEvent.offsetX;
     const offsetWidth = e.nativeEvent.target.offsetWidth;
     this.player.volume = offsetX / offsetWidth;
   }
+
   toggleLoop() {
     this.setState({ loop: !this.state.loop }, function() {
       this.player.loop = this.state.loop;
     });
   }
+
   toggleShuffle() {
     this.setState({ shuffle: !this.state.shuffle });
   }
+
   toggleVolume() {
     this.setState({ volumeup: !this.state.volumeup }, function() {
       if (!this.state.volumeup) {
@@ -132,6 +145,7 @@ class Player extends Component {
       }
     });
   }
+
   componentDidMount() {
     const that = this;
     this.startPlayer();
@@ -152,6 +166,7 @@ class Player extends Component {
       }
     });
   }
+
   render() {
     return (
       <div id="player">

@@ -58,7 +58,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   User.associate = models => {
-    // models.User.hasMany(User);
+    models.User.hasMany(User);
   };
 
   User.beforeSave((user, options) => {
