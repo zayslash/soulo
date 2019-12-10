@@ -17,7 +17,8 @@ const auth = {
     })
       .then(response => {
         if (!response.ok) {
-          throw new Error("Login Failed");
+          console.log("Login Failed");
+          return;
         }
         return response.json();
       })
@@ -38,7 +39,8 @@ const auth = {
       .then(response => {
         console.log(response);
         if (!response.ok) {
-          throw new Error("Registration Failed");
+          console.log("Registration Failed");
+          return;
         }
         return response.json();
       })

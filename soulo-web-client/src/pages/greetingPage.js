@@ -1,6 +1,5 @@
 import React from "react";
 import "./greetingPage.css";
-import AuthButton from "../components/AuthButton";
 
 function greetingPage() {
   return (

@@ -21,8 +21,8 @@ function UserProfile(props) {
         <br />
         <div className="userStats">
           <p>
-            <h2>{props.followerCount} 28 followers</h2>
-            <h2>{props.plays} 245 plays</h2>
+            <h2> {props.followerCount} followers</h2>
+            <h2> {props.plays} plays</h2>
           </p>
         </div>
       </div>
