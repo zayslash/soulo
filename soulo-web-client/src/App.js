@@ -59,7 +59,7 @@ class App extends React.Component {
         <div className="container-fluid text-center">
           <div className="row justify-content-center">
             <Switch>
-              <Route
+              {/* <Route
                 path="/profile"
                 render={props => (
                   <UserProfile
@@ -70,7 +70,7 @@ class App extends React.Component {
                     profileImage={require("./assets/test.JPG")}
                   />
                 )}
-              />
+              /> */}
               <Route path="/upload" component={UploadSongs} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
