@@ -3,7 +3,7 @@ import storage from "../firebase";
 import { Progress } from "reactstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import "./uploadSongs.css";
 class UploadSongs extends React.Component {
   constructor(props) {
     super(props);
@@ -122,7 +122,7 @@ class UploadSongs extends React.Component {
 
   render() {
     return (
-      <div class="container">
+      <div class="uploadContainer">
         <div class="row">
           <div class="offset-md-3 col-md-6">
             <div class="form-group files">
@@ -140,14 +140,32 @@ class UploadSongs extends React.Component {
                 {Math.round(this.state.loaded, 2)}%
               </Progress>
             </div>
+            <br />
+            <br />
 
-            <button
-              type="button"
-              class="btn btn-success btn-block"
-              onClick={this.onClickHandler}
-            >
-              Upload
-            </button>
+            <form>
+              <p>Title</p>
+              <input className="uploadForm" name="Title" type="text" /> <br />
+              <p>Tags</p>
+              <input className="uploadForm" name="Tag" type="text" /> <br />
+              <p>Description</p>
+              <textarea className="uploadForm" cols="30" rows="4"></textarea>
+              <br /> <input
+                name="democheckbox"
+                type="checkbox"
+                value="1"
+              />{" "}
+              Checkbox
+              <br />
+              <button
+                type="button"
+                class="btn btn-success btn-block"
+                className="uploadButton"
+                onClick={this.onClickHandler}
+              >
+                Upload
+              </button>
+            </form>
           </div>
         </div>
       </div>

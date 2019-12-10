@@ -30,6 +30,16 @@ function Navigation() {
           </NavLink>
           {console.log(auth.isAuthenticated)}
         </li>
+
+        <li className="nav-item">
+          {/* <form>
+            <input className="searchbar" placeholder="Search"></input>
+          </form> */}
+        </li>
+        <li className="nav-item tim">
+          <img src={require("./assets/test.JPG")} className="profilePicture" />
+          <div className="userProfileName">Matthew</div>
+        </li>
       </ul>
     </nav>
   );

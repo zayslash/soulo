@@ -1,0 +1,39 @@
+.uploadContainer {
+  padding: 30px;
+  width: 360px;
+  align-content: left;
+  align-items: left;
+
+  width: 50%;
+  margin: 0 auto;
+}
+
+.uploadButton {
+  width: 100px;
+  background-color: #ff5500;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.uploadButton:hover {
+  background-color: #ff7e3d;
+}
+
+.uploadButton:active {
+  background-color: #3d7aff;
+}
+
+.uploadForm {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
