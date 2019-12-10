@@ -4,9 +4,9 @@ import "./Post.css";
 function Post(props) {
   return (
     <div className="MainContainer">
-      <div className="nickname"> {props.nickname}</div>
-      <img className="avatar" alt="pic" src={props.avatar} />
+      {/* <img className="avatar" alt="pic" src={props.avatar} /> */}
       <img className="image" alt="imgHolder" src={props.image} />
+      <div className="nickname"> {props.nickname}</div>
       <div className="caption"> {props.caption}</div>
     </div>
   );

@@ -9,9 +9,9 @@ import "./App.css";
 
 import greetingPage from "./pages/greetingPage";
 import LoginPage from "./pages/loginPage";
-import SignUpPage from "./pages/signUpPage";
-import UserProfile from "./pages/userProfile";
-import UploadSongs from "./pages/uploadSongs";
+import SignUpPage from "./pages/SignUpPage";
+import UserProfile from "./pages/UserProfile";
+import UploadSongs from "./pages/UploadSongs";
 import homePage from "./pages/homePage";
 import auth from "./services/auth";
 

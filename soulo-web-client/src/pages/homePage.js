@@ -6,7 +6,7 @@ import Player from "../services/Player";
 
 import ScrollContainer from "react-indiana-drag-scroll";
 import { NavLink } from "react-router-dom";
-import UserProfile from "./userProfile";
+import UserProfile from "./UserProfile";
 export default class homePage extends React.Component {
   render() {
     return (

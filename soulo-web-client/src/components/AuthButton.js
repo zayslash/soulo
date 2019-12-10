@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter, Link } from "react-router-dom";
 
 import auth from "../services/auth";
-import UserProfile from "../pages/userProfile";
+import UserProfile from "../pages/UserProfile";
 import { Redirect } from "react-router-dom";
 import LoginPage from "../pages/loginPage";
 
