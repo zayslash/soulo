@@ -10,6 +10,13 @@ import { NavLink } from "react-router-dom";
 import UserProfile from "./userProfile";
 
 class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isPlaying: false
+    };
+  }
+
   render() {
     return (
       <div className="MainContainer">
@@ -17,7 +24,7 @@ class HomePage extends React.Component {
         <ScrollContainer
           vertical={false}
           horizontal={true}
-          nativeMobileScroll={true}
+          nativeMobileScroll={false}
           className="scroll-container"
         >
           <div className="IconPopulation">
@@ -44,26 +51,77 @@ class HomePage extends React.Component {
                 subtitle="live"
               />
             </NavLink>
-            <Card
-              // title="Zay S"
-              image={require("../assets/test.JPG")}
-              caption="Zayslash"
-              subtitle="live"
-            />
 
-            <Card
-              //title="Jona J"
-              image={require("../assets/test.JPG")}
-              caption="JJamz"
-              subtitle="live"
-            />
+            <NavLink
+              className="nav-link"
+              exact
+              to="/profile"
+              render={props => (
+                <UserProfile
+                  {...props}
+                  name={"Nona"}
+                  location={"New York,United States"}
+                  about={"A breif description of the User and channel"}
+                  profileImage={require("../assets/test.JPG")}
+                  followerCount={28}
+                  plays={365}
+                />
+              )}
+            >
+              <Card
+                // title="Zay S"
+                image={require("../assets/test.JPG")}
+                caption="Zayslash"
+                subtitle="live"
+              />
+            </NavLink>
+            <NavLink
+              className="nav-link"
+              exact
+              to="/profile"
+              render={props => (
+                <UserProfile
+                  {...props}
+                  name={"Nona"}
+                  location={"New York,United States"}
+                  about={"A breif description of the User and channel"}
+                  profileImage={require("../assets/test.JPG")}
+                  followerCount={28}
+                  plays={365}
+                />
+              )}
+            >
+              <Card
+                //title="Jona J"
+                image={require("../assets/test.JPG")}
+                caption="JJamz"
+                subtitle="live"
+              />
+            </NavLink>
 
-            <Card
-              // title="Mike M"
-              image={require("../assets/test.JPG")}
-              caption="miKEY"
-              subtitle="live"
-            />
+            <NavLink
+              className="nav-link"
+              exact
+              to="/profile"
+              render={props => (
+                <UserProfile
+                  {...props}
+                  name={"Nona"}
+                  location={"New York,United States"}
+                  about={"A breif description of the User and channel"}
+                  profileImage={require("../assets/test.JPG")}
+                  followerCount={28}
+                  plays={365}
+                />
+              )}
+            >
+              <Card
+                // title="Mike M"
+                image={require("../assets/test.JPG")}
+                caption="miKEY"
+                subtitle="live"
+              />
+            </NavLink>
             <Card
               // title="Rayona P"
               image={require("../assets/test.JPG")}
@@ -121,35 +179,62 @@ class HomePage extends React.Component {
             />
           </div>
         </ScrollContainer>
-        <div className="userPosts">
-          <Post
-            nickname="Zagz"
-            avatar={require("../assets/testprofile.jpeg")}
-            caption="Point and Shoot"
-            image={require("../assets/test.JPG")}
-          />
 
-          <Post
-            nickname="OG"
-            avatar={require("../assets/testprofile.jpeg")}
-            caption="Point and Shoot"
-            image={require("../assets/test.JPG")}
-          />
-          <Post
-            nickname="Yurr"
-            avatar={require("../assets/av1.jpg")}
-            caption="Point and Shoot"
-            image={require("../assets/test.JPG")}
-          />
-          <Post
-            nickname="GagN"
-            avatar={require("../assets/av2.jpg")}
-            caption="Point and Shoot"
-            image={require("../assets/test.JPG")}
-          />
+        <h3>Featured</h3>
+        <ScrollContainer
+          vertical={false}
+          horizontal={true}
+          nativeMobileScroll={false}
+          className="scroll-container"
+        >
+          <div className="userPosts">
+            <Post
+              nickname="Zagz"
+              avatar={require("../assets/testprofile.jpeg")}
+              caption="Point and Shoot"
+              image={require("../assets/test.JPG")}
+            />
 
-          {/* more posts */}
-        </div>
+            <Post
+              nickname="OG"
+              avatar={require("../assets/testprofile.jpeg")}
+              caption="Point and Shoot"
+              image={require("../assets/test.JPG")}
+            />
+            <Post
+              nickname="Yurr"
+              avatar={require("../assets/av1.jpg")}
+              caption="Point and Shoot"
+              image={require("../assets/test.JPG")}
+            />
+            <Post
+              nickname="GagN"
+              avatar={require("../assets/av2.jpg")}
+              caption="Point and Shoot"
+              image={require("../assets/test.JPG")}
+            />
+
+            <Post
+              nickname="OG"
+              avatar={require("../assets/testprofile.jpeg")}
+              caption="Point and Shoot"
+              image={require("../assets/test.JPG")}
+            />
+            <Post
+              nickname="Yurr"
+              avatar={require("../assets/av1.jpg")}
+              caption="Point and Shoot"
+              image={require("../assets/test.JPG")}
+            />
+            <Post
+              nickname="GagN"
+              avatar={require("../assets/av2.jpg")}
+              caption="Point and Shoot"
+              image={require("../assets/test.JPG")}
+            />
+            {/* more posts */}
+          </div>
+        </ScrollContainer>
         <div className="audio_player_container">
           <Player />
         </div>
