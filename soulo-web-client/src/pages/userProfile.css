@@ -47,3 +47,14 @@
   position: relative;
   overflow: hidden;
 }
+
+.userProfilePosts {
+  margin-top: 10px;
+  /* height: 120px; */
+  display: flex;
+  float: right;
+  flex-shrink: 0;
+  /* margin-left: 3px; */
+  margin-bottom: 165px;
+  width: 100%;
+}
