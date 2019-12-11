@@ -1,9 +1,9 @@
 import React from "react";
 import "./userProfile.css";
 import "./homePage.css";
-import Player from "../services/Player";
 import ScrollContainer from "react-indiana-drag-scroll";
 import Post from "../components/Post";
+import UserDetail from "../components/userDetails";
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -22,10 +22,11 @@ class UserProfile extends React.Component {
         this.setState({
           loading: false,
           posts: user.getPosts().map((post, ii) => <Post {...post} key={ii} />),
-          user: user
+          user: user.map((user, ii) => <UserDetail {...user} key={ii} />)
         });
       })
       .catch(err => console.log("API ERROR: ", err));
+    console.log(this.state.user);
   }
 
   render() {
@@ -63,10 +64,6 @@ class UserProfile extends React.Component {
             <div className="userProfilePosts">{this.props.post}</div>
           </ScrollContainer>
         </div>
-
-        {/* <div className="audio_player_container">
-          <Player />
-        </div> */}
       </div>
     );
   }

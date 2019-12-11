@@ -1,7 +1,7 @@
 import React from "react";
 import "./homePage.css";
 import Post from "../components/Post";
-import Player from "../services/Player";
+import Loading from "../components/loading";
 import ScrollContainer from "react-indiana-drag-scroll";
 import User from "../components/user";
 
@@ -12,6 +12,7 @@ class HomePage extends React.Component {
       isPlaying: false,
       posts: [],
       users: [],
+      user: null,
       isLoading: true
     };
   }
@@ -22,7 +23,9 @@ class HomePage extends React.Component {
       .then(users => {
         this.setState({
           loading: false,
-          users: users.map((user, ii) => <User {...user} key={ii} />)
+          users: users.map((user, ii) => (
+            <User {...user} user={user} key={ii} />
+          ))
         });
       })
       .catch(err => console.log("API ERROR: ", err));
@@ -31,7 +34,6 @@ class HomePage extends React.Component {
       .then(res => res.json())
       .then(posts => {
         this.setState({
-          loading: false,
           posts: posts.map((p, ii) => (
             <Post
               {...p}
@@ -41,7 +43,8 @@ class HomePage extends React.Component {
               image={require("../assets/test.JPG")}
               key={ii}
             />
-          ))
+          )),
+          loading: false
         });
       })
       .catch(err => console.log("API ERROR: ", err));
@@ -57,7 +60,9 @@ class HomePage extends React.Component {
           nativeMobileScroll={false}
           className="scroll-container"
         >
-          <div className="IconPopulation"> {this.state.users} </div>
+          <div className="IconPopulation">
+            {this.state.loading ? <Loading /> : this.state.users}
+          </div>
         </ScrollContainer>
 
         <h3>Featured</h3>
@@ -102,9 +107,6 @@ class HomePage extends React.Component {
             {/* {this.state.posts} */}
           </div>
         </ScrollContainer>
-        {/* <div className="audio_player_container">
-          <Player />
-        </div> */}
       </div>
     );
   }

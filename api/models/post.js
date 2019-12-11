@@ -33,8 +33,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Post.associate = models => {
-    models.Post.belongsTo(models.User);
-    models.Post.hasMany(models.Music);
+    // models.Post.hasMany(models.Music);
   };
   return Post;
 };

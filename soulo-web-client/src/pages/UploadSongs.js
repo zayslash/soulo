@@ -173,6 +173,7 @@ class UploadSongs extends React.Component {
               }
               prevList.push(url);
               this.setState({ urls: prevList });
+              console.log(this.state.urls);
             });
         }
       );
