@@ -4,6 +4,7 @@ import { Progress } from "reactstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./uploadSongs.css";
+
 class UploadSongs extends React.Component {
   constructor(props) {
     super(props);
@@ -144,7 +145,6 @@ class UploadSongs extends React.Component {
   };
 
   onClickHandler = () => {
-    let downloadUrls = [];
     for (let file of this.state.selectedFiles) {
       const uploadTask = storage.ref(`audio/${file.name}`).put(file);
       uploadTask.on(
@@ -162,17 +162,22 @@ class UploadSongs extends React.Component {
           console.log(error);
         },
         () => {
-          storage
+          return storage
             .ref("audio")
             .child(file.name)
             .getDownloadURL()
-            .then(url => downloadUrls.push(url));
+            .then(url => {
+              let prevList = [];
+              if (this.state.urls !== null) {
+                prevList = this.state.urls.slice();
+              }
+              prevList.push(url);
+              this.setState({ urls: prevList });
+            });
         }
       );
     }
     this.savePost();
-    console.log(downloadUrls);
-    this.setState({ url: downloadUrls });
   };
 
   render() {

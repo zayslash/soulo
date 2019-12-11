@@ -13,8 +13,8 @@ import SignUpPage from "./pages/signUpPage";
 import UserProfile from "./pages/userProfile";
 import UploadSongs from "./pages/uploadSongs";
 import HomePage from "./pages/homePage";
-
 import auth from "./services/auth";
+import ShowUserProfile from "./components/showUserProfile";
 
 function Navigation() {
   return (
@@ -81,7 +81,9 @@ class App extends React.Component {
                   />
                 )}
               />
-              <Route path="/upload" component={UploadSongs} />
+              <Route path="/upload/" component={UploadSongs} />
+              <Route path="/profile/:id" component={ShowUserProfile} />
+              <Route path="/profile" component={UserProfile} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
               <Route path="/home" component={HomePage} />

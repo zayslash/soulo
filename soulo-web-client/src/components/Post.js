@@ -1,10 +1,12 @@
 import React from "react";
 import "./Post.css";
+
 class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPlaying: false
+      isPlaying: false,
+      playlist: []
     };
     this.play = this.play.bind(this);
   }
