@@ -2,13 +2,30 @@ import React from "react";
 import "./userProfile.css";
 import "./homePage.css";
 import Player from "../services/Player";
-
 import ScrollContainer from "react-indiana-drag-scroll";
+import Post from "../components/Post";
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      posts: [],
+      user: null
+    };
+  }
+
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    fetch("/api/users/" + id)
+      .then(res => res.json())
+      .then(user => {
+        this.setState({
+          loading: false,
+          posts: user.getPosts().map((post, ii) => <Post {...post} key={ii} />),
+          user: user
+        });
+      })
+      .catch(err => console.log("API ERROR: ", err));
   }
 
   render() {
@@ -23,7 +40,7 @@ class UserProfile extends React.Component {
         </div>
         <div className="userInfo">
           <p>
-            <h1>{this.props.name} </h1>
+            <h1>{this.props.name}</h1>
           </p>
           <p>{this.props.location}</p>
           <br />

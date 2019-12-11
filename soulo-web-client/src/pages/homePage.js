@@ -1,9 +1,7 @@
 import React from "react";
 import "./homePage.css";
 import Post from "../components/Post";
-import Card from "../components/Card";
 import Player from "../services/Player";
-import { Link } from "react-router-dom";
 import ScrollContainer from "react-indiana-drag-scroll";
 import User from "../components/user";
 
@@ -59,42 +57,7 @@ class HomePage extends React.Component {
           nativeMobileScroll={false}
           className="scroll-container"
         >
-          <div className="IconPopulation">
-            <Link className="nav-link" to={"/profile"}>
-              <Card
-                title="House"
-                image={require("../assets/test.JPG")}
-                caption="NoNa"
-                subtitle="live"
-              />
-            </Link>
-            <Link className="nav-link" to={"/profile"}>
-              <Card
-                title="Hip/Hop"
-                image={require("../assets/test.JPG")}
-                caption="NoNa"
-                subtitle="live"
-              />
-            </Link>
-            <Link className="nav-link" to={"/profile"}>
-              <Card
-                title="Rap"
-                image={require("../assets/test.JPG")}
-                caption="NoNa"
-                subtitle="live"
-              />
-            </Link>
-            <Link className="nav-link" to={"/profile"}>
-              <Card
-                title="Pop"
-                image={require("../assets/test.JPG")}
-                caption="NoNa"
-                subtitle="live"
-              />
-            </Link>
-            {/* This will be populated with data from the database */}
-            {/* {this.state.users} */}
-          </div>
+          <div className="IconPopulation"> {this.state.users} </div>
         </ScrollContainer>
 
         <h3>Featured</h3>
