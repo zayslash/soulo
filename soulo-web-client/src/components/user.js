@@ -2,14 +2,14 @@ import React from "react";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 
-function User({ id }) {
+function User({ firstName, id }) {
   return (
-    <Link to={"/profile/" + id}>
+    <Link className="nav-link" to={"/profile/" + id}>
       <Card
-        title="Rayona"
+        title="House"
         image={require("../assets/test.JPG")}
-        caption="NoNa"
-        subtitle="live"
+        caption={firstName}
+        subtitle="Live"
       />
     </Link>
   );

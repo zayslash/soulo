@@ -8,6 +8,7 @@ class Post extends React.Component {
       isPlaying: false,
       playlist: []
     };
+    this.setState({ playlist: this.props.playlist });
     this.play = this.play.bind(this);
   }
 
