@@ -8,8 +8,14 @@ class UploadSongs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedFiles: [],
+      formControls: {
+        description: "",
+        tag: "",
+        title: ""
+      },
       loaded: 0,
+      success: false,
+      selectedFiles: [],
       urls: null
     };
   }
@@ -74,8 +80,42 @@ class UploadSongs extends React.Component {
     return true;
   };
 
+  savePost() {
+    fetch("/api/posts/", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        description: this.state.formControls.description,
+        title: this.state.formControls.title,
+        tag: this.state.formControls.tag,
+        playlist: JSON.stringify(this.state.urls)
+      })
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+
+        throw new Error("Post validation");
+      })
+      .then(post => {
+        console.log(post);
+        this.setState({
+          success: true
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          error: true
+        });
+      });
+  }
   onChangeHandler = event => {
-    let files = event.target.files;
+    const files = event.target.files;
     if (
       this.maxSelectFile(event) &&
       this.checkMimeType(event) &&
@@ -89,10 +129,23 @@ class UploadSongs extends React.Component {
     }
   };
 
+  contentChangeHandler = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    const updatedControls = {
+      ...this.state.formControls
+    };
+    const updatedFormElement = {
+      ...updatedControls[name]
+    };
+    updatedFormElement.value = value;
+    updatedControls[name] = updatedFormElement;
+    this.setState({ formControls: updatedControls });
+  };
+
   onClickHandler = () => {
-    const { selectedFiles } = this.state;
-    console.log(selectedFiles);
-    for (let file of selectedFiles) {
+    let downloadUrls = [];
+    for (let file of this.state.selectedFiles) {
       const uploadTask = storage.ref(`audio/${file.name}`).put(file);
       uploadTask.on(
         "state_changed",
@@ -109,15 +162,17 @@ class UploadSongs extends React.Component {
           console.log(error);
         },
         () => {
-          // Complete function
           storage
             .ref("audio")
             .child(file.name)
             .getDownloadURL()
-            .then(url => console.log(url));
+            .then(url => downloadUrls.push(url));
         }
       );
     }
+    this.savePost();
+    console.log(downloadUrls);
+    this.setState({ url: downloadUrls });
   };
 
   render() {
@@ -145,16 +200,33 @@ class UploadSongs extends React.Component {
 
             <form>
               <p>Title</p>
-              <input className="uploadForm" name="Title" type="text" /> <br />
-              <p>Tags</p>
-              <input className="uploadForm" name="Tag" type="text" /> <br />
-              <p>Description</p>
-              <textarea className="uploadForm" cols="30" rows="4"></textarea>
-              <br /> <input
-                name="democheckbox"
-                type="checkbox"
-                value="1"
+              <input
+                name="title"
+                className="uploadForm"
+                value={this.state.title}
+                onChange={this.contentChangeHandler}
+                type="text"
               />{" "}
+              <br />
+              <p>Tags</p>
+              <input
+                name="tag"
+                className="uploadForm"
+                value={this.state.tag}
+                onChange={this.contentChangeHandler}
+                type="text"
+              />{" "}
+              <br />
+              <p>Description</p>
+              <textarea
+                name="description"
+                className="uploadForm"
+                value={this.state.description}
+                onChange={this.contentChangeHandler}
+                cols="30"
+                rows="4"
+              ></textarea>
+              <br /> <input name="democheckbox" type="checkbox" value="1" />{" "}
               Checkbox
               <br />
               <button

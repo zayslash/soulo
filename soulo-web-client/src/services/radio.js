@@ -40,6 +40,15 @@ class Player extends React.Component {
     this.toggleShuffle = this.toggleShuffle.bind(this);
   }
 
+  step() {
+    let seek = this.player.seek() || 0;
+    let position = seek / this.duration;
+    this.setState({ progressbar: position * 100 });
+    if (this.player.playing()) {
+      requestAnimationFrame(this.step.bind(this));
+    }
+  }
+
   startRadio() {
     // If we already loaded this track, use the current one.
     // Otherwise, setup and load a new Howl.
@@ -50,6 +59,14 @@ class Player extends React.Component {
       this.player = new Howl({
         src: [this.playlist[this.state.currentSong].src],
         autoplay: true,
+        onvolume: () => {
+          this.setState({ volumebar: this.volume * 100 });
+        },
+        onplay: () => {
+          let position = this.currentTime / this.duration;
+          this.setState({ progressbar: position * 100 });
+          requestAnimationFrame(this.step.bind(this));
+        },
         html5: true
       });
       this.playlist[this.state.currentSong].howl = this.player;
@@ -128,7 +145,7 @@ class Player extends React.Component {
   onVolumeClick(e) {
     const offsetX = e.nativeEvent.offsetX;
     const offsetWidth = e.nativeEvent.target.offsetWidth;
-    this.player.volume = offsetX / offsetWidth;
+    this.player.volume(offsetX / offsetWidth);
   }
 
   toggleLoop() {
