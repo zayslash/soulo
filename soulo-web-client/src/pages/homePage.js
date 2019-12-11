@@ -102,9 +102,9 @@ class HomePage extends React.Component {
             {/* {this.state.posts} */}
           </div>
         </ScrollContainer>
-        <div className="audio_player_container">
+        {/* <div className="audio_player_container">
           <Player />
-        </div>
+        </div> */}
       </div>
     );
   }
