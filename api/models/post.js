@@ -2,7 +2,7 @@
 const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
-  class Music extends Model {}
+  class Post extends Model {}
 
   Post.init(
     {
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING
       },
       playlist: {
-        type: Sequelize.ARRAY(Sequelize.TEXT)
+        type: DataTypes.ARRAY(DataTypes.STRING)
       },
       tag: {
         type: DataTypes.STRING
