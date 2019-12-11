@@ -1,20 +1,52 @@
 import React from "react";
 import "./homePage.css";
-import Post from "../components/Post.js";
-import Card from "../components/Card.js";
-import Player from "../services/radio";
-
+import Post from "../components/Post";
+import Card from "../components/Card";
+import Player from "../services/Player";
+import { Link } from "react-router-dom";
 import ScrollContainer from "react-indiana-drag-scroll";
-import { NavLink } from "react-router-dom";
-
-import UserProfile from "./userProfile";
+import User from "../components/user";
 
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPlaying: false
+      isPlaying: false,
+      posts: [],
+      users: [],
+      isLoading: true
     };
+  }
+
+  componentDidMount() {
+    fetch("/api/users")
+      .then(res => res.json())
+      .then(users => {
+        this.setState({
+          loading: false,
+          users: users.map((user, ii) => <User {...user} key={ii} />)
+        });
+      })
+      .catch(err => console.log("API ERROR: ", err));
+
+    fetch("/api/posts")
+      .then(res => res.json())
+      .then(posts => {
+        this.setState({
+          loading: false,
+          posts: posts.map((p, ii) => (
+            <Post
+              {...p}
+              nickname="OG"
+              avatar={require("../assets/testprofile.jpeg")}
+              caption="Point and Shoot"
+              image={require("../assets/test.JPG")}
+              key={ii}
+            />
+          ))
+        });
+      })
+      .catch(err => console.log("API ERROR: ", err));
   }
 
   render() {
@@ -28,155 +60,40 @@ class HomePage extends React.Component {
           className="scroll-container"
         >
           <div className="IconPopulation">
-            <NavLink
-              className="nav-link"
-              exact
-              to="/profile"
-              render={props => (
-                <UserProfile
-                  {...props}
-                  name={"Nona"}
-                  location={"New York,United States"}
-                  about={"A breif description of the User and channel"}
-                  profileImage={require("../assets/test.JPG")}
-                  followerCount={28}
-                  plays={365}
-                />
-              )}
-            >
+            <Link className="nav-link" to={"/profile"}>
               <Card
-                // title="Rayona P"
+                title="House"
                 image={require("../assets/test.JPG")}
                 caption="NoNa"
                 subtitle="live"
               />
-            </NavLink>
-
-            <NavLink
-              className="nav-link"
-              exact
-              to="/profile"
-              render={props => (
-                <UserProfile
-                  {...props}
-                  name={"Nona"}
-                  location={"New York,United States"}
-                  about={"A breif description of the User and channel"}
-                  profileImage={require("../assets/test.JPG")}
-                  followerCount={28}
-                  plays={365}
-                />
-              )}
-            >
+            </Link>
+            <Link className="nav-link" to={"/profile"}>
               <Card
-                // title="Zay S"
+                title="Hip/Hop"
                 image={require("../assets/test.JPG")}
-                caption="Zayslash"
+                caption="NoNa"
                 subtitle="live"
               />
-            </NavLink>
-            <NavLink
-              className="nav-link"
-              exact
-              to="/profile"
-              render={props => (
-                <UserProfile
-                  {...props}
-                  name={"Nona"}
-                  location={"New York,United States"}
-                  about={"A breif description of the User and channel"}
-                  profileImage={require("../assets/test.JPG")}
-                  followerCount={28}
-                  plays={365}
-                />
-              )}
-            >
+            </Link>
+            <Link className="nav-link" to={"/profile"}>
               <Card
-                //title="Jona J"
+                title="Rap"
                 image={require("../assets/test.JPG")}
-                caption="JJamz"
+                caption="NoNa"
                 subtitle="live"
               />
-            </NavLink>
-
-            <NavLink
-              className="nav-link"
-              exact
-              to="/profile"
-              render={props => (
-                <UserProfile
-                  {...props}
-                  name={"Nona"}
-                  location={"New York,United States"}
-                  about={"A breif description of the User and channel"}
-                  profileImage={require("../assets/test.JPG")}
-                  followerCount={28}
-                  plays={365}
-                />
-              )}
-            >
+            </Link>
+            <Link className="nav-link" to={"/profile"}>
               <Card
-                // title="Mike M"
+                title="Pop"
                 image={require("../assets/test.JPG")}
-                caption="miKEY"
+                caption="NoNa"
                 subtitle="live"
               />
-            </NavLink>
-            <Card
-              // title="Rayona P"
-              image={require("../assets/test.JPG")}
-              caption="GardoZeen"
-              subtitle="live"
-            />
-
-            <Card
-              image={require("../assets/test.JPG")}
-              caption="ElvisHour"
-              subtitle="live"
-            />
-
-            <Card
-              image={require("../assets/test.JPG")}
-              caption="EzyEvee"
-              subtitle="live"
-            />
-
-            <Card
-              image={require("../assets/test.JPG")}
-              caption="EzyEvee"
-              subtitle="live"
-            />
-            <Card
-              image={require("../assets/test.JPG")}
-              caption="EzyEvee"
-              subtitle="live"
-            />
-            <Card
-              image={require("../assets/test.JPG")}
-              caption="EzyEvee"
-              subtitle="live"
-            />
-            <Card
-              image={require("../assets/test.JPG")}
-              caption="EzyEvee"
-              subtitle="live"
-            />
-
-            <Card
-              image={require("../assets/test.JPG")}
-              caption="EzyEvee"
-              subtitle="live"
-            />
-            <Card
-              image={require("../assets/test.JPG")}
-              caption="EzyEvee"
-              subtitle="live"
-            />
-            <Card
-              image={require("../assets/test.JPG")}
-              caption="EzyEvee"
-              subtitle="live"
-            />
+            </Link>
+            {/* This will be populated with data from the database */}
+            {/* {this.state.users} */}
           </div>
         </ScrollContainer>
 
@@ -194,45 +111,32 @@ class HomePage extends React.Component {
               caption="Point and Shoot"
               image={require("../assets/test.JPG")}
             />
-
             <Post
-              nickname="OG"
+              nickname="Zagz"
               avatar={require("../assets/testprofile.jpeg")}
               caption="Point and Shoot"
               image={require("../assets/test.JPG")}
             />
             <Post
-              nickname="Yurr"
-              avatar={require("../assets/av1.jpg")}
-              caption="Point and Shoot"
-              image={require("../assets/test.JPG")}
-            />
-            <Post
-              nickname="GagN"
-              avatar={require("../assets/av2.jpg")}
-              caption="Point and Shoot"
-              image={require("../assets/test.JPG")}
-            />
-
-            <Post
-              nickname="OG"
+              nickname="Zagz"
               avatar={require("../assets/testprofile.jpeg")}
               caption="Point and Shoot"
               image={require("../assets/test.JPG")}
             />
             <Post
-              nickname="Yurr"
-              avatar={require("../assets/av1.jpg")}
+              nickname="Zagz"
+              avatar={require("../assets/testprofile.jpeg")}
               caption="Point and Shoot"
               image={require("../assets/test.JPG")}
             />
             <Post
-              nickname="GagN"
-              avatar={require("../assets/av2.jpg")}
+              nickname="Zagz"
+              avatar={require("../assets/testprofile.jpeg")}
               caption="Point and Shoot"
               image={require("../assets/test.JPG")}
             />
-            {/* more posts */}
+            {/* This will be populated with data from the database */}
+            {/* {this.state.posts} */}
           </div>
         </ScrollContainer>
         <div className="audio_player_container">
