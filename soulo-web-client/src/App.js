@@ -99,6 +99,7 @@ class App extends React.Component {
                   />
                 )}
               />
+
               <Route path="/upload/" component={UploadSongs} />
               <Route path="/profile/:id" component={ShowUserProfile} />
               <Route path="/profile" component={UserProfile} />
