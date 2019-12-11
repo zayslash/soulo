@@ -21,9 +21,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", passport.isAuthenticated(), (req, res) => {
-  let { content } = req.body;
-
-  Post.create({ content })
+  let { description, tag, title, playlist } = req.body;
+  Post.create({ description, tag, title, playlist })
     .then(post => {
       res.status(201).json(post);
     })
@@ -39,7 +38,10 @@ router.put("/:id", passport.isAuthenticated(), (req, res) => {
       return res.sendStatus(404);
     }
 
-    post.content = req.body.content;
+    post.description = req.body.description;
+    post.tag = req.body.tag;
+    post.title = req.body.title;
+    post.playlist = req.body.playlist;
     post
       .save()
       .then(post => {
