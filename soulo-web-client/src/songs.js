@@ -1,11 +1,11 @@
 export default [
   {
-    artistname: "Davido ft ChrisBrown",
+    artistname: "Davido ft. Chris Brown",
     image:
-      "https://blog.spoongraphics.co.uk/wp-content/uploads/2017/01/thumbnail-2.jpg",
+      "https://spice.eplus.jp/images/aJ2RXq6mhQC4LwOfxbJXxlqfUOA2nY8doN473iUo58e40zMHPRs7bNvHFkKPRDXw/",
     title: "Blow My Mind",
     src:
-      "https://firebasestorage.googleapis.com/v0/b/soulo-53ee5.appspot.com/o/audio%2FDavido-Blow-My-Mind-feat-Chris-Brown-(JustNaija.com).mp3?alt=media&token=fe8268e4-b527-4be0-9ac0-c1c8449d5d9d"
+      "https://firebasestorage.googleapis.com/v0/b/soulo-53ee5.appspot.com/o/audio%2FDavido-Blow-My-Mind-feat-Chris-Brown-(JustNaija.com).mp3?alt=media&token=0c4b272f-b084-40d2-afcd-09432a0e1730"
   },
   {
     artistname: "Fireboy DML",
@@ -13,14 +13,54 @@ export default [
       "http://eartharrowmusic.com/wp-content/uploads/2019/05/EA_Pachamama_AlbumCoverFront-768x768.jpg",
     title: "Vibration",
     src:
-      "https://firebasestorage.googleapis.com/v0/b/soulo-53ee5.appspot.com/o/audio%2FFireboy-DML-Vibration-(JustNaija.com).mp3?alt=media&token=565a3961-04da-4ea4-9654-46af31532fce"
+      "https://firebasestorage.googleapis.com/v0/b/soulo-53ee5.appspot.com/o/audio%2FFireboy-DML-Vibration-(JustNaija.com).mp3?alt=media&token=b44ad189-4c06-47eb-a870-6fa441547151"
   },
   {
-    artistname: "Playboi Carti",
+    artistname: "The Lumineers",
     image:
-      "https://spice.eplus.jp/images/aJ2RXq6mhQC4LwOfxbJXxlqfUOA2nY8doN473iUo58e40zMHPRs7bNvHFkKPRDXw/",
-    title: "Type Beat",
+      "https://blog.spoongraphics.co.uk/wp-content/uploads/2017/01/thumbnail-2.jpg",
+    title: "Ophelia",
     src:
-      "https://firebasestorage.googleapis.com/v0/b/soulo-53ee5.appspot.com/o/audio%2F%5BFREE%5D%20Playboi%20Carti%20x%20Gunna%20Type%20Beat%20Hellcat%20(Prod.%20IamTash%20x%20Armada).mp3?alt=media&token=eff5481f-c8fa-4c3a-b398-b66d838f5808"
+      "https://firebasestorage.googleapis.com/v0/b/soulo-53ee5.appspot.com/o/audio%2FThe%20Lumineers%20-%20Ophelia%20my-free-mp3s.com%20.mp3?alt=media&token=4ad22c18-2959-4f77-87b4-b6979bfae3bd"
+  },
+  {
+    artistname: "Maroon 5",
+    image:
+      "https://blog.spoongraphics.co.uk/wp-content/uploads/2017/01/thumbnail-2.jpg",
+    title: "Memories",
+    src:
+      "https://firebasestorage.googleapis.com/v0/b/soulo-53ee5.appspot.com/o/audio%2FMaroon%205%20-%20Memories%20my-free-mp3s.com%20.mp3?alt=media&token=97e49524-9def-408a-9d16-cf96702e9658"
+  },
+  {
+    artistname: "The Lumineers",
+    image:
+      "https://blog.spoongraphics.co.uk/wp-content/uploads/2017/01/thumbnail-2.jpg",
+    title: "Gloria",
+    src:
+      "https://firebasestorage.googleapis.com/v0/b/soulo-53ee5.appspot.com/o/audio%2FThe%20Lumineers%20-%20Gloria%20my-free-mp3s.com%20.mp3?alt=media&token=a1bd5010-b653-4684-a3d2-a8dad6742364"
+  },
+  {
+    artistname: "The Lumineers",
+    image:
+      "https://blog.spoongraphics.co.uk/wp-content/uploads/2017/01/thumbnail-2.jpg",
+    title: "Sleep On The Floor",
+    src:
+      "https://firebasestorage.googleapis.com/v0/b/soulo-53ee5.appspot.com/o/audio%2FThe%20Lumineers%20-%20Sleep%20On%20The%20Floor%20my-free-mp3s.com%20.mp3?alt=media&token=4db8210a-8ac3-4eef-b127-9578cac72e13"
+  },
+  {
+    artistname: "Maroon 5",
+    image:
+      "https://blog.spoongraphics.co.uk/wp-content/uploads/2017/01/thumbnail-2.jpg",
+    title: "Girls Like You",
+    src:
+      "https://firebasestorage.googleapis.com/v0/b/soulo-53ee5.appspot.com/o/audio%2FMaroon%205%20-%20Girls%20Like%20You%20my-free-mp3s.com%20.mp3?alt=media&token=c43ba1cd-725b-4f62-88d5-7261f1b47ec9"
+  },
+  {
+    artistname: "The Lumineers",
+    image:
+      "https://blog.spoongraphics.co.uk/wp-content/uploads/2017/01/thumbnail-2.jpg",
+    title: "Ho Hey",
+    src:
+      "https://firebasestorage.googleapis.com/v0/b/soulo-53ee5.appspot.com/o/audio%2FThe%20Lumineers%20-%20Ho%20Hey%20my-free-mp3s.com%20.mp3?alt=media&token=cd1c2baa-6c74-46fa-9872-e68fe0b328d2"
   }
 ];
