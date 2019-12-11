@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING
       },
       playlist: {
-        type: Sequelize.ARRAY(Sequelize.TEXT)
+        type: DataTypes.ARRAY(DataTypes.STRING)
       },
       tag: {
         type: DataTypes.STRING

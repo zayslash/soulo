@@ -64,9 +64,9 @@ class UserProfile extends React.Component {
           </ScrollContainer>
         </div>
 
-        <div className="audio_player_container">
+        {/* <div className="audio_player_container">
           <Player />
-        </div>
+        </div> */}
       </div>
     );
   }
