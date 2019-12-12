@@ -17,7 +17,6 @@ class UploadSongs extends React.Component {
       loaded: 0,
       success: false,
       selectedFiles: [],
-      imageFile: "",
       urls: null,
       imageUrl: ""
     };
@@ -96,6 +95,7 @@ class UploadSongs extends React.Component {
         title: this.state.formControls.title,
         tag: this.state.formControls.tag,
         playlist: this.state.urls,
+        image: this.state.imageUrl,
         userId: id
       })
     })
@@ -146,7 +146,6 @@ class UploadSongs extends React.Component {
     ];
 
     if (mimeType.every(type => file.type !== type)) {
-      console.log(file.type);
       error = `${file.type} is not a supported format\n`;
     }
 
@@ -161,12 +160,7 @@ class UploadSongs extends React.Component {
     uploadTask.on(
       "state_changed",
       snapshot => {
-        // Progress function
-        const progress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        this.setState({
-          loaded: progress
-        });
+        console.log(snapshot);
       },
       error => {
         // Error function
@@ -248,7 +242,7 @@ class UploadSongs extends React.Component {
                   className="imgUp"
                   onChange={this.onChangeImageHandler}
                 />
-                <img src={this.state.imageUrl} />
+                {this.state.imageUrl && <img src={this.state.imageUrl} />}
               </div>
 
               <label>Upload Your File </label>

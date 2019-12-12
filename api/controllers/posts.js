@@ -27,6 +27,7 @@ router.post("/:id", (req, res) => {
     tag: req.body.tag,
     title: req.body.title,
     playlist: req.body.playlist,
+    image: req.body.image,
     userId: id
   })
     .then(post => {
