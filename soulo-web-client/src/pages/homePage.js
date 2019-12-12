@@ -4,6 +4,7 @@ import Post from "../components/post";
 import Loading from "../components/loading";
 import ScrollContainer from "react-indiana-drag-scroll";
 import User from "../components/user";
+import MediaControlCard from "../components/postAlternative";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -104,6 +105,8 @@ class HomePage extends React.Component {
               caption="Point and Shoot"
               image={require("../assets/test.JPG")}
             />
+
+            <MediaControlCard />
             {/* This will be populated with data from the database */}
             {/* {this.state.posts} */}
           </div>
