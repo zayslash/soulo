@@ -4,5 +4,17 @@
 
 .slide-container {
   width: 70%;
+  height: 200px;
+  margin: auto;
+}
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  position: relative;
+  height: 400px;
+  top: -60px;
   margin: auto;
 }

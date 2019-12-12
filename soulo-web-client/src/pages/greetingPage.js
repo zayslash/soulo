@@ -1,22 +1,48 @@
 import React from "react";
-import { Zoom } from "react-slideshow-image";
+import { Slide } from "react-slideshow-image";
 import "./greetingPage.css";
 
-const images = [
-  "../assets/slide1.jpg",
-  "../assets/slide2.jpg",
-  "../assets/slide3.jpg",
-  "../assets/slide4.jpg",
-  "../assets/slide5.jpg"
+const slideImages = [
+  require("../assets/slide1.jpg"),
+  require("../assets/slide2.jpg"),
+  require("../assets/slide3.jpg"),
+  require("../assets/slide4.jpg"),
+  require("../assets/slide5.jpg")
 ];
 
-const zoomOutProperties = {
+const properties = {
   duration: 5000,
   transitionDuration: 500,
   infinite: true,
   indicators: true,
-  scale: 0.4,
-  arrows: true
+  arrows: true,
+  onChange: (oldIndex, newIndex) => {
+    console.log(`slide transition from ${oldIndex} to ${newIndex}`);
+  }
+};
+
+const Slideshow = () => {
+  return (
+    <div className="slide-container">
+      <Slide {...properties}>
+        <div className="each-slide">
+          <div style={{ backgroundImage: `url(${slideImages[0]})` }}></div>
+        </div>
+        <div className="each-slide">
+          <div style={{ backgroundImage: `url(${slideImages[1]})` }}></div>
+        </div>
+        <div className="each-slide">
+          <div style={{ backgroundImage: `url(${slideImages[2]})` }}></div>
+        </div>
+        <div className="each-slide">
+          <div style={{ backgroundImage: `url(${slideImages[3]})` }}></div>
+        </div>
+        <div className="each-slide">
+          <div style={{ backgroundImage: `url(${slideImages[4]})` }}></div>
+        </div>
+      </Slide>
+    </div>
+  );
 };
 
 function greetingPage() {
@@ -28,12 +54,8 @@ function greetingPage() {
         tune in to your shows.
       </p>
       <div className="Title-text">{/* <AuthButton /> */}</div>
-      <div className="slide-container">
-        <Zoom {...zoomOutProperties}>
-          {images.map((each, index) => (
-            <img key={index} style={{ width: "100%" }} src={each} />
-          ))}
-        </Zoom>
+      <div className="greeting-slides">
+        <Slideshow />
       </div>
     </div>
   );
