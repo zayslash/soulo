@@ -38,3 +38,17 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+.uploadSongsImg {
+  border: 1px solid black;
+
+  width: 180px;
+  height: 180px;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.imgUp {
+  bottom: 0;
+  display: fixed;
+}
