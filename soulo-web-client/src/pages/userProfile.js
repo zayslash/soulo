@@ -39,18 +39,16 @@ class UserProfile extends React.Component {
           />
         </div>
         <div className="userInfo">
-          <p>
-            <h1>{this.props.name}</h1>
-          </p>
+          <h1>{this.props.name}</h1>
           <p>{this.props.location}</p>
           <br />
           <p> {this.props.about} </p>
           <br />
           <div className="userStats">
-            <p>
+            <div>
               <h2> {this.props.followerCount} followers</h2>
               <h2> {this.props.plays} plays</h2>
-            </p>
+            </div>
           </div>
 
           <h3>Your Audio</h3>
