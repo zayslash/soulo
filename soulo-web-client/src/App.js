@@ -17,47 +17,7 @@ import auth from "./services/auth";
 import ShowUserProfile from "./components/showUserProfile";
 import Player from "./services/Player";
 
-function Navigation() {
-  return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3 appContainer">
-      <ul className="navbar-nav mr-auto">
-        <li className="nav-item">
-          <NavLink className="navbar-brand nav-link2 " exact to="/home">
-            <img
-              alt="soulo"
-              className="App-logo"
-              src={require("./assets/logo.png")}
-            />
-          </NavLink>
-          {console.log(auth.isAuthenticated)}
-        </li>
-
-        <li className="nav-item">
-          <form>
-            <input className="searchbar" placeholder="Search"></input>
-          </form>
-        </li>
-
-        <li className="nav-item upload">
-          <NavLink className="navbar-brand nav-link2 " exact to="/upload">
-            <i className={"fa fa-arrow-up uploadImg"}></i>
-            <div className="UploadName">Upload</div>
-          </NavLink>
-        </li>
-
-        <li className="nav-item tim">
-          <NavLink className="" exact to="/profile">
-            <img
-              src={require("./assets/test.JPG")}
-              className="profilePicture"
-            />
-            <div className="userProfileName">Jonathan</div>
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
-  );
-}
+import Navigation from "./components/Navigation";
 
 function Footer() {
   return (
