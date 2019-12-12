@@ -246,7 +246,9 @@ class UploadSongs extends React.Component {
                   className="imgUp"
                   onChange={this.onChangeImageHandler}
                 />
-                <img src={this.state.imageUrl} />
+                {this.state.imageUrl && (
+                  <img className="profile-img" src={this.state.imageUrl} />
+                )}
               </div>
 
               <label>Upload Your File </label>
