@@ -24,6 +24,7 @@ class UserProfile extends React.Component {
           posts: user.getPosts().map((post, ii) => <Post {...post} key={ii} />),
           user: user.map((user, ii) => <UserDetail {...user} key={ii} />)
         });
+        console.log(user);
       })
       .catch(err => console.log("API ERROR: ", err));
     console.log(this.state.user);

@@ -20,15 +20,18 @@ router.get("/", (req, res) => {
   Post.findAll({}).then(posts => res.json(posts));
 });
 
-router.post("/", passport.isAuthenticated(), (req, res) => {
+router.post("/:id", (req, res) => {
+  const { id } = req.params;
   Post.create({
     description: req.body.description,
     tag: req.body.tag,
     title: req.body.title,
-    playlist: req.body.playlist
+    playlist: req.body.playlist,
+    userId: id
   })
     .then(post => {
       res.status(201).json(post);
+      console.log(post);
     })
     .catch(err => {
       res.status(400).json(err);
