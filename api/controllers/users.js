@@ -5,10 +5,10 @@ const passport = require("../middlewares/authentication");
 const { User } = db;
 
 router.get("/", (req, res) => {
-  User.findAll({}).then(posts => res.json(posts));
+  User.findAll({}).then(user => res.json(user));
 });
 
-router.get("/:id", passport.isAuthenticated(), (req, res) => {
+router.get("/:id", (req, res) => {
   const { id } = req.params;
   User.findByPk(id).then(user => {
     if (!user) {

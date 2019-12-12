@@ -13,9 +13,9 @@ import SignUpPage from "./pages/signUpPage";
 import UserProfile from "./pages/userProfile";
 import UploadSongs from "./pages/UploadSongs";
 import HomePage from "./pages/homePage";
-import auth from "./services/auth";
 import ShowUserProfile from "./components/showUserProfile";
 import Player from "./services/Player";
+import PrivateRoute from "./components/PrivateRoute";
 
 function Navigation() {
   return (
@@ -29,7 +29,6 @@ function Navigation() {
               src={require("./assets/logo.png")}
             />
           </NavLink>
-          {console.log(auth.isAuthenticated)}
         </li>
 
         <li className="nav-item">
@@ -68,6 +67,22 @@ function Footer() {
 }
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAuthenticated: false,
+      player: null
+    };
+  }
+
+  componentDidMount() {
+    if (this.state.isAuthenticated) {
+      this.setState({ player: <Footer /> });
+    } else {
+      this.setState({ player: null });
+    }
+  }
+
   render() {
     return (
       <Router>
@@ -87,17 +102,17 @@ class App extends React.Component {
                   />
                 )}
               />
-              <Route path="/upload/" component={UploadSongs} />
+              <PrivateRoute path="/upload" component={UploadSongs} />
               <Route path="/profile/:id" component={ShowUserProfile} />
               <Route path="/profile" component={UserProfile} />
+              <Route path="/home" component={HomePage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
-              <Route path="/home" component={HomePage} />
               <Route path="/" component={greetingPage} />
             </Switch>
           </div>
         </div>
-        <Footer />
+        {this.state.isAuthenticated && this.state.player}
       </Router>
     );
   }

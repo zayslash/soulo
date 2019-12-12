@@ -83,8 +83,7 @@ class UploadSongs extends React.Component {
   };
 
   savePost() {
-    const { id } = this.props.match.params;
-    fetch("/api/posts/" + id, {
+    fetch("/api/posts/", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -95,8 +94,7 @@ class UploadSongs extends React.Component {
         title: this.state.formControls.title,
         tag: this.state.formControls.tag,
         playlist: this.state.urls,
-        image: this.state.imageUrl,
-        userId: id
+        image: this.state.imageUrl
       })
     })
       .then(res => {
@@ -159,9 +157,7 @@ class UploadSongs extends React.Component {
     const uploadTask = storage.ref(`images/${file.name}`).put(file);
     uploadTask.on(
       "state_changed",
-      snapshot => {
-        console.log(snapshot);
-      },
+      snapshot => {},
       error => {
         // Error function
         console.log(error);
@@ -228,6 +224,10 @@ class UploadSongs extends React.Component {
     }
     this.savePost();
   };
+
+  componentDidMount() {
+    console.log(this.props.history.location);
+  }
 
   render() {
     return (

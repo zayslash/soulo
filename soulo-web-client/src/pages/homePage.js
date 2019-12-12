@@ -12,7 +12,7 @@ class HomePage extends React.Component {
       isPlaying: false,
       posts: [],
       users: [],
-      user: null,
+      userId: this.props.history.location.id,
       isLoading: true
     };
   }

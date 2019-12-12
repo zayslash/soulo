@@ -4,12 +4,13 @@ import "./loginPage.css";
 import TextInput from "../common/textInput";
 import validate from "../common/validate";
 import auth from "../services/auth";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 
 class LoginPage extends React.Component {
   constructor() {
     super();
     this.state = {
+      userId: null,
       formIsValid: false, //we will use this to track the overall form validity
 
       formControls: {
@@ -72,13 +73,22 @@ class LoginPage extends React.Component {
       formData[formElementId] = this.state.formControls[formElementId].value;
     }
     const { email, password } = formData;
-    auth.authenticate(email, password);
-    if (auth.isAuthenticated) {
-      this.props.history.push("/home");
-    }
+    auth.authenticate(email, password).then(user => {
+      this.setState({ userId: user.id });
+    });
   };
 
   render() {
+    if (auth.isAuthenticated) {
+      return (
+        <Redirect
+          to={{
+            pathname: "/home",
+            id: this.state.userId
+          }}
+        />
+      );
+    }
     return (
       <div className="Container">
         <form onSubmit={this.formSubmitHandler}>

@@ -15,14 +15,15 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props.match);
     const { id } = this.props.match.params;
-    fetch("/api/users/" + id)
+    fetch("/api/users/" + 1)
       .then(res => res.json())
       .then(user => {
         this.setState({
           loading: false,
-          posts: user.getPosts().map((post, ii) => <Post {...post} key={ii} />),
-          user: user.map((user, ii) => <UserDetail {...user} key={ii} />)
+          posts: user.getPosts().map((post, ii) => <Post {...post} key={ii} />)
+          // user: user.map((user, ii) => <UserDetail {...user} key={ii} />)
         });
         console.log(user);
       })
