@@ -1,6 +1,6 @@
 import React from "react";
 import "./homePage.css";
-import Post from "../components/Post";
+import Post from "../components/post";
 import Loading from "../components/loading";
 import ScrollContainer from "react-indiana-drag-scroll";
 import User from "../components/user";

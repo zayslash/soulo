@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import Card from "./card";
 import { Link } from "react-router-dom";
 
 function User({ firstName, id }) {
