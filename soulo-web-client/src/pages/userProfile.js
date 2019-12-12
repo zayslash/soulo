@@ -2,7 +2,7 @@ import React from "react";
 import "./userProfile.css";
 import "./homePage.css";
 import ScrollContainer from "react-indiana-drag-scroll";
-import Post from "../components/Post";
+import Post from "../components/post";
 import UserDetail from "../components/userDetails";
 
 class UserProfile extends React.Component {

@@ -11,12 +11,12 @@ import greetingPage from "./pages/greetingPage";
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
 import UserProfile from "./pages/userProfile";
-import UploadSongs from "./pages/UploadSongs";
+import UploadSongs from "./pages/uploadSongs";
 import HomePage from "./pages/homePage";
 import ShowUserProfile from "./components/showUserProfile";
-import Player from "./services/Player";
-import PrivateRoute from "./components/PrivateRoute";
-import Navigation from "./components/Navigation";
+import Player from "./services/player";
+import PrivateRoute from "./components/privateRoute";
+import Navigation from "./components/navigation";
 
 function Footer() {
   return (
