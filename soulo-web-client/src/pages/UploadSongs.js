@@ -18,7 +18,8 @@ class UploadSongs extends React.Component {
       success: false,
       selectedFiles: [],
       imageFile: "",
-      urls: null
+      urls: null,
+      imageUrl: ""
     };
   }
 
@@ -156,6 +157,31 @@ class UploadSongs extends React.Component {
     this.setState({
       imageFile: file
     });
+    const uploadTask = storage.ref(`images/${file.name}`).put(file);
+    uploadTask.on(
+      "state_changed",
+      snapshot => {
+        // Progress function
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        this.setState({
+          loaded: progress
+        });
+      },
+      error => {
+        // Error function
+        console.log(error);
+      },
+      () => {
+        return storage
+          .ref("images")
+          .child(file.name)
+          .getDownloadURL()
+          .then(url => {
+            this.setState({ imageUrl: url });
+          });
+      }
+    );
   };
 
   contentChangeHandler = event => {
@@ -222,7 +248,7 @@ class UploadSongs extends React.Component {
                   className="imgUp"
                   onChange={this.onChangeImageHandler}
                 />
-                <img src={this.state.imageFile} />
+                <img src={this.state.imageUrl} />
               </div>
 
               <label>Upload Your File </label>
