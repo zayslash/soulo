@@ -3,7 +3,6 @@ import "./userProfile.css";
 import "./homePage.css";
 import ScrollContainer from "react-indiana-drag-scroll";
 import Post from "../components/post";
-import UserDetail from "../components/userDetails";
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -15,17 +14,15 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.match);
     const { id } = this.props.match.params;
-    fetch("/api/users/" + 1)
+    fetch("/api/users/" + id)
       .then(res => res.json())
       .then(user => {
         this.setState({
           loading: false,
-          posts: user.getPosts().map((post, ii) => <Post {...post} key={ii} />)
-          // user: user.map((user, ii) => <UserDetail {...user} key={ii} />)
+          posts: user.getPosts().map((post, ii) => <Post {...post} key={ii} />),
+          user: user
         });
-        console.log(user);
       })
       .catch(err => console.log("API ERROR: ", err));
     console.log(this.state.user);

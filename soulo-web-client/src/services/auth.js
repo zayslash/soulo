@@ -38,7 +38,6 @@ const auth = {
       body: JSON.stringify(formData)
     })
       .then(response => {
-        console.log(response);
         if (!response.ok) {
           console.log("Registration Failed");
           return;

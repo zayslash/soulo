@@ -24,7 +24,7 @@ class HomePage extends React.Component {
         this.setState({
           loading: false,
           users: users.map((user, ii) => (
-            <User {...user} user={user} key={ii} />
+            <User {...user} currentUserId={this.state.userId} key={ii} />
           ))
         });
       })
