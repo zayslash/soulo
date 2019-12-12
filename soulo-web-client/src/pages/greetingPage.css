@@ -1,3 +1,8 @@
 .Title-text {
   padding: 50px;
 }
+
+.slide-container {
+  width: 70%;
+  margin: auto;
+}
