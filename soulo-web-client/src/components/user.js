@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./card";
 import { Link } from "react-router-dom";
 
-function User({ firstName, id, tags }) {
+function User({ firstName, currentUserId, id }) {
   return (
     <Link className="nav-link" to={"/profile/" + id}>
       <Card

@@ -1,6 +1,6 @@
 import React from "react";
 
-function UserDetail(props) {
+function UserDetail({ firstName: firstName, lastName: lastName, ...props }) {
   return (
     <div>
       <div className="headerCover">
@@ -8,7 +8,7 @@ function UserDetail(props) {
       </div>
       <div className="userInfo">
         <p>
-          <h1>{props.firstName}</h1>
+          <h1>{firstName + " " + lastName}</h1>
         </p>
         <p>{props.location}</p>
         <br />

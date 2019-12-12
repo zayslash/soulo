@@ -26,7 +26,7 @@ class HomePage extends React.Component {
         this.setState({
           loading: false,
           users: users.map((user, ii) => (
-            <User {...user} user={user} key={ii} />
+            <User {...user} currentUserId={this.state.userId} key={ii} />
           ))
         });
       })
@@ -75,6 +75,7 @@ class HomePage extends React.Component {
           className="scroll-container"
         >
           <div className="userPosts">
+            <MediaControlCard />
             <Post
               nickname="Zagz"
               avatar={require("../assets/testprofile.jpeg")}
@@ -106,7 +107,6 @@ class HomePage extends React.Component {
               image={require("../assets/test.JPG")}
             />
 
-            <MediaControlCard />
             {/* This will be populated with data from the database */}
             {/* {this.state.posts} */}
           </div>
