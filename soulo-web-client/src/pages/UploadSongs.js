@@ -17,6 +17,7 @@ class UploadSongs extends React.Component {
       loaded: 0,
       success: false,
       selectedFiles: [],
+      imageFile: "",
       urls: null
     };
   }
@@ -132,6 +133,31 @@ class UploadSongs extends React.Component {
     }
   };
 
+  onChangeImageHandler = event => {
+    const file = event.target.files[0];
+    let error;
+    const mimeType = [
+      "image/png",
+      "image/jpeg",
+      "image/tiff",
+      "image/bmp",
+      "image/gif"
+    ];
+
+    if (mimeType.every(type => file.type !== type)) {
+      console.log(file.type);
+      error = `${file.type} is not a supported format\n`;
+    }
+
+    toast.error(error);
+    event.target.value = null;
+
+    console.log(file);
+    this.setState({
+      imageFile: file
+    });
+  };
+
   contentChangeHandler = event => {
     const name = event.target.name;
     const value = event.target.value;
@@ -189,6 +215,16 @@ class UploadSongs extends React.Component {
         <div class="row">
           <div class="offset-md-3 col-md-6">
             <div class="form-group files">
+              <div className="uploadSongsImg">
+                <input
+                  type="file"
+                  class="form-control"
+                  className="imgUp"
+                  onChange={this.onChangeImageHandler}
+                />
+                <img src={this.state.imageFile} />
+              </div>
+
               <label>Upload Your File </label>
               <input
                 type="file"

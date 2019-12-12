@@ -11,7 +11,7 @@ import greetingPage from "./pages/greetingPage";
 import LoginPage from "./pages/loginPage";
 import SignUpPage from "./pages/signUpPage";
 import UserProfile from "./pages/userProfile";
-import UploadSongs from "./pages/uploadSongs";
+import UploadSongs from "./pages/UploadSongs";
 import HomePage from "./pages/homePage";
 import auth from "./services/auth";
 import ShowUserProfile from "./components/showUserProfile";
