@@ -83,8 +83,7 @@ class UploadSongs extends React.Component {
   };
 
   savePost() {
-    const { id } = this.props.match.params;
-    fetch("/api/posts/" + id, {
+    fetch("/api/posts/", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -94,8 +93,7 @@ class UploadSongs extends React.Component {
         description: this.state.formControls.description,
         title: this.state.formControls.title,
         tag: this.state.formControls.tag,
-        playlist: this.state.urls,
-        userId: id
+        playlist: JSON.stringify(this.state.urls)
       })
     })
       .then(res => {
