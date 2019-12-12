@@ -114,9 +114,10 @@
   font-size: 15px;
   margin-left: 8px;
   margin-top: 20px;
+
   /* float: right; */
   color: black;
-  /* padding-right: 46px; */
+  padding-right: 14px;
 }
 
 .UploadName {
@@ -134,4 +135,55 @@
   position: fixed;
   top: 0;
   width: 100%;
+}
+
+.dropMenu {
+  display: none;
+  margin-top: 20px;
+  float: right;
+  padding-right: 46px;
+}
+
+@media only screen and (max-width: 750px) {
+  .upload {
+    display: none;
+  }
+
+  .tim {
+    display: none;
+  }
+
+  .dropMenu {
+    display: inline;
+  }
+
+  .searchbar {
+    /* width: 60px; */
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .searchbar {
+    width: 90px;
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .searchbar {
+    width: 60px;
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .searchbar {
+    display: none;
+  }
+}
+
+.menuImg {
+  margin-top: -10px;
+  font-size: 20px;
 }

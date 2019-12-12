@@ -1,7 +1,7 @@
 .headerCover {
   height: 200px;
   width: 200px;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   border-radius: 50%;
   float: left;
@@ -20,7 +20,7 @@
 .userInfo {
   padding-left: 25px;
   padding-right: 250px;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
 }
 
@@ -44,7 +44,7 @@
   padding-right: 250px;
   /* margin-top: -70px; */
 
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
 }
 
