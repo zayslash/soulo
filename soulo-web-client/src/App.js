@@ -72,7 +72,8 @@ class App extends React.Component {
             </Switch>
           </div>
         </div>
-        {this.state.isAuthenticated && this.state.player}
+        {/* {this.state.isAuthenticated && this.state.player} */}
+        <Footer />
       </Router>
     );
   }
