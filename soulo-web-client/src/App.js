@@ -9,7 +9,7 @@ import "./App.css";
 
 import greetingPage from "./pages/greetingPage";
 import LoginPage from "./pages/loginPage";
-import SignUpPage from "./pages/SignUpPage";
+import SignUpPage from "./pages/signUpPage";
 import UserProfile from "./pages/userProfile";
 import UploadSongs from "./pages/UploadSongs";
 import HomePage from "./pages/homePage";
