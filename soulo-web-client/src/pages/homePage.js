@@ -18,6 +18,7 @@ class HomePage extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.state.userId);
     fetch("/api/users")
       .then(res => res.json())
       .then(users => {
