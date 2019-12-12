@@ -6,7 +6,7 @@ import auth from '../services/auth';
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
     auth.isAuthenticated === true
-      ? <Component {...props} />
+      ? <Component usrMail={auth.usrMail} {...props} />
       : <Redirect to={{
           pathname: '/login',
           state: { from: props.location }

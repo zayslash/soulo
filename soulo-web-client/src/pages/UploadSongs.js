@@ -83,6 +83,7 @@ class UploadSongs extends React.Component {
   };
 
   savePost() {
+    console.log(this.props);
     const { id } = this.props.match.params;
     fetch("/api/posts/" + id, {
       method: "POST",
@@ -100,6 +101,7 @@ class UploadSongs extends React.Component {
       })
     })
       .then(res => {
+        console.log(res);
         if (res.ok) {
           return res.json();
         }
