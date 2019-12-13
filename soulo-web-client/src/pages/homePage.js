@@ -4,6 +4,7 @@ import Post from "../components/post";
 import Loading from "../components/loading";
 import ScrollContainer from "react-indiana-drag-scroll";
 import User from "../components/user";
+import auth from "../services/auth";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -12,7 +13,8 @@ class HomePage extends React.Component {
       isPlaying: false,
       posts: [],
       users: [],
-      isLoading: true
+      isLoading: true,
+      user: null
     };
   }
 
@@ -20,6 +22,13 @@ class HomePage extends React.Component {
     fetch("/api/users")
       .then(res => res.json())
       .then(users => {
+        users.forEach(user => {
+          if (user.email === auth.emailAddress) {
+            this.setState({
+              user: user
+            });
+          }
+        });
         this.setState({
           loading: false,
           users: users.map((user, ii) => <User {...user} key={ii} />)

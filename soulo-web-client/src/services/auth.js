@@ -46,6 +46,7 @@ const auth = {
         return response.json();
       })
       .then(body => {
+        this.emailAddress = formData.email;
         this.isAuthenticated = true;
         return body;
       });

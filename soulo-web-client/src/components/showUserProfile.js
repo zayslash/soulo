@@ -1,6 +1,5 @@
 import React from "react";
 import UserProfile from "../pages/userProfile.js";
-import auth from "../services/auth";
 
 class ShowUserProfile extends React.Component {
   constructor(props) {
