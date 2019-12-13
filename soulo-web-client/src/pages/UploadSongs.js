@@ -269,14 +269,6 @@ class UploadSongs extends React.Component {
                 multiple
                 onChange={this.onChangeSongsHandler}
               />
-              <button
-                type="button"
-                class="btn btn-success btn-block"
-                className="uploadSong"
-                onClick={this.uploadSongs}
-              >
-                Upload Songs
-              </button>
             </div>
             <div class="form-group">
               <ToastContainer />
@@ -328,6 +320,15 @@ class UploadSongs extends React.Component {
               </button>
             </form>
           </div>
+
+          <button
+            type="button"
+            class="btn btn-success btn-block"
+            className="uploadButton"
+            onClick={this.uploadSongs}
+          >
+            Upload Songs
+          </button>
         </div>
       </div>
     );

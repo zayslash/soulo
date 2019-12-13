@@ -55,3 +55,8 @@
   bottom: 0;
   display: fixed;
 }
+
+.uploadSongButton {
+  display: inline;
+  z-index: 2;
+}
