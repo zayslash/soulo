@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Slide } from "react-slideshow-image";
+import TextLoop from "react-text-loop";
 import "./greetingPage.css";
 
 const slideImages = [
@@ -40,7 +41,13 @@ const Slideshow = () => {
 function greetingPage() {
   return (
     <div className="MainContainer">
-      <h1>Create your own radio Experience</h1>
+      <h1>
+        Create your own{" "}
+        <TextLoop
+          children={["radio", "podcast", "DJ", "marketing", "show host"]}
+        />
+        {""} Experience
+      </h1>
       <p>
         Sign up and deploy to our mobile app where listeners can subscribe and
         tune in to your shows.
