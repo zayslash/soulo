@@ -3,12 +3,14 @@ import "./userProfile.css";
 import "./homePage.css";
 import ScrollContainer from "react-indiana-drag-scroll";
 import Post from "../components/post";
+import Loading from "../components/loading";
 import UserDetail from "../components/userDetails";
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       posts: [],
       user: null
     };
@@ -30,9 +32,10 @@ class UserProfile extends React.Component {
   }
 
   render() {
+    console.log(this.state.user);
     return (
       <div className="MainContainer">
-        <div>{this.state.user}</div>
+        <div> {this.state.loading ? <Loading /> : this.state.user}</div>
         <h3>Your Audio</h3>
         <ScrollContainer
           vertical={false}

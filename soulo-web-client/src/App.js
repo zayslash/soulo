@@ -47,7 +47,7 @@ class App extends React.Component {
             <Switch>
               <PrivateRoute path="/upload" component={UploadSongs} />
               <Route path="/profile/:id" component={ShowUserProfile} />
-              <Route path="/profile" component={UserProfile} />
+              <PrivateRoute path="/profile" component={UserProfile} />
               <Route path="/home" component={HomePage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />

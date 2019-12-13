@@ -25,6 +25,7 @@ const auth = {
       })
       .then(body => {
         this.isAuthenticated = true;
+        this.emailAddress = email;
         return body;
       });
   },
