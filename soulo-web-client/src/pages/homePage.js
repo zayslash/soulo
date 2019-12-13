@@ -4,7 +4,6 @@ import Post from "../components/post";
 import Loading from "../components/loading";
 import ScrollContainer from "react-indiana-drag-scroll";
 import User from "../components/user";
-import MediaControlCard from "../components/postAlternative";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -75,7 +74,6 @@ class HomePage extends React.Component {
           className="scroll-container"
         >
           <div className="userPosts">
-            <MediaControlCard />
             <Post
               nickname="Zagz"
               avatar={require("../assets/testprofile.jpeg")}
