@@ -47,10 +47,9 @@ class App extends React.Component {
           <div className="row justify-content-center">
             <Switch>
               <PrivateRoute path="/upload" component={UploadSongs} />
-              <Route path="/profile/:id" component={ShowUserProfile} />
+              <PrivateRoute path="/profile/:id" component={ShowUserProfile} />
               <PrivateRoute path="/myaccount" component={MyAccount} />
-              <Route path="/profile" component={UserProfile} />
-              <Route path="/home" component={HomePage} />
+              <PrivateRoute path="/home" component={HomePage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />
               <Route path="/" component={greetingPage} />
