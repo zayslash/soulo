@@ -20,8 +20,10 @@
 .userInfo {
   padding-left: 25px;
   padding-right: 250px;
+  padding-top: 20px;
   /* position: relative; */
   overflow: hidden;
+  white-space: nowrap;
 }
 
 .audio_player_container {
@@ -57,4 +59,13 @@
   /* margin-left: 3px; */
   margin-bottom: 165px;
   width: 100%;
+}
+
+.blackText {
+  color: rgb(255, 110, 14);
+  display: inline;
+}
+
+.userAudio {
+  margin-top: 80px;
 }

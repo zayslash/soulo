@@ -18,8 +18,12 @@ function UserDetail({ firstName, lastName }) {
         <br />
         <div className="userStats">
           <div>
-            <h2> {23} followers</h2>
-            <h2> {492} plays</h2>
+            <h2>
+              <div className="blackText">{23} </div>followers
+            </h2>
+            <h2>
+              <div className="blackText">{456} </div>plays
+            </h2>
           </div>
         </div>
       </div>

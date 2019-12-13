@@ -33,15 +33,17 @@ class UserProfile extends React.Component {
     return (
       <div className="MainContainer">
         <div>{this.state.user}</div>
-        <h3>Your Audio</h3>
-        <ScrollContainer
-          vertical={false}
-          horizontal={true}
-          nativeMobileScroll={false}
-          className="scroll-container"
-        >
-          <div className="userProfilePosts">{this.props.post}</div>
-        </ScrollContainer>
+        <div className="userAudio">
+          <h3>Your Audio</h3>
+          <ScrollContainer
+            vertical={false}
+            horizontal={true}
+            nativeMobileScroll={false}
+            className="scroll-container"
+          >
+            <div className="userProfilePosts">{this.props.post}</div>
+          </ScrollContainer>
+        </div>
       </div>
     );
   }
