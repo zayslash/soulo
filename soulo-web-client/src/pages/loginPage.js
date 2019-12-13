@@ -90,41 +90,60 @@ class LoginPage extends React.Component {
       );
     }
     return (
-      <div className="Container">
-        <form onSubmit={this.formSubmitHandler}>
-          <TextInput
-            name="email"
-            type={"email"}
-            placeholder={this.state.formControls.email.placeholder}
-            value={this.state.formControls.email.value}
-            onChange={this.changeHandler}
-            touched={this.state.formControls.email.touched}
-            valid={this.state.formControls.email.value}
-          />
-          <TextInput
-            name="password"
-            type={"password"}
-            placeholder={this.state.formControls.password.placeholder}
-            value={this.state.formControls.password.value}
-            onChange={this.changeHandler}
-            touched={this.state.formControls.password.touched}
-            valid={this.state.formControls.password.value}
-          />
+      <div
+        className="Container"
+        style={{
+          width: "120vw",
+          height: "120vh",
+          position: "fixed",
+          top: "-20vh",
+          left: "-10vw",
+          zIndex: -1
+        }}
+      >
+        <div className="logcard">
+          <h1>Login</h1>
+          <form onSubmit={this.formSubmitHandler}>
+            <TextInput
+              name="email"
+              type={"email"}
+              placeholder={this.state.formControls.email.placeholder}
+              value={this.state.formControls.email.value}
+              onChange={this.changeHandler}
+              touched={this.state.formControls.email.touched}
+              valid={this.state.formControls.email.value}
+            />
+            <TextInput
+              name="password"
+              type={"password"}
+              placeholder={this.state.formControls.password.placeholder}
+              value={this.state.formControls.password.value}
+              onChange={this.changeHandler}
+              touched={this.state.formControls.password.touched}
+              valid={this.state.formControls.password.value}
+            />
 
-          <input
-            type="submit"
-            name="login"
-            disabled={!this.state.formIsValid}
-          />
-        </form>
-        <div>
-          <p>
-            Not a member?
-            <NavLink className="nav-link" exact to="/signup">
-              signup
-            </NavLink>
-          </p>
+            <input
+              type="submit"
+              name="login"
+              disabled={!this.state.formIsValid}
+            />
+          </form>
+          <div>
+            <p>
+              Not a member?
+              <NavLink className="nav-link" exact to="/signup">
+                signup
+              </NavLink>
+            </p>
+          </div>
         </div>
+
+        <video className="background_video" autoPlay loop muted>
+          <source src="/soulection.mp4" type="video/mp4" />
+          {/* <source src="/soulection.mp4" type="video/ogg" /> */}
+          Your browser does not support the video tag.
+        </video>
       </div>
     );
   }

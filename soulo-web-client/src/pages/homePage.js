@@ -75,34 +75,29 @@ class HomePage extends React.Component {
         >
           <div className="userPosts">
             <Post
-              nickname="Zagz"
-              avatar={require("../assets/testprofile.jpeg")}
-              caption="Point and Shoot"
-              image={require("../assets/test.JPG")}
+              nickname="Earl Pin"
+              caption="Magic Monday"
+              image={require("../assets/test1.png")}
             />
             <Post
-              nickname="Zagz"
-              avatar={require("../assets/testprofile.jpeg")}
-              caption="Point and Shoot"
-              image={require("../assets/test.JPG")}
+              nickname="Earl Pin"
+              caption="Point of View"
+              image={require("../assets/IMG_1115.png")}
             />
             <Post
-              nickname="Zagz"
-              avatar={require("../assets/testprofile.jpeg")}
-              caption="Point and Shoot"
-              image={require("../assets/test.JPG")}
+              nickname="Jonathan"
+              caption="Shoot"
+              image={require("../assets/IMG_1116.png")}
             />
             <Post
-              nickname="Zagz"
-              avatar={require("../assets/testprofile.jpeg")}
-              caption="Point and Shoot"
-              image={require("../assets/test.JPG")}
+              nickname="Zapper John"
+              caption="Meditation into tomorrow"
+              image={require("../assets/IMG_1123.png")}
             />
             <Post
-              nickname="Zagz"
-              avatar={require("../assets/testprofile.jpeg")}
-              caption="Point and Shoot"
-              image={require("../assets/test.JPG")}
+              nickname="Unseen Hurd"
+              caption="Fashion Week NY Talk"
+              image={require("../assets/IMG_1125.png")}
             />
 
             {/* This will be populated with data from the database */}
