@@ -18,12 +18,10 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({
-      posts: Posts.map((post, ii) => <Post {...post} key={ii} />)
-    });
     setTimeout(() => {
       this.setState({
         loading: false,
+        posts: Posts.map((post, ii) => <Post {...post} key={ii} />),
         userDetails: <UserDetail {...this.props.user} />
       });
     }, 500);
