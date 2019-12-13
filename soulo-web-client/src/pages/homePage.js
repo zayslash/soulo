@@ -53,7 +53,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div className="MainContainer">
+      <div className="HomeContainer">
         <h3>Users</h3>
         <ScrollContainer
           vertical={false}
