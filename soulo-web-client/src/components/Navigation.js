@@ -37,7 +37,7 @@ function Navigation(props) {
 
         <li className="nav-item upload">
           <NavLink className="navbar-brand nav-link2 " exact to="/upload">
-            <i className={"fa fa-arrow-up uploadImg"}></i>
+            <i className={"fa fa-upload uploadImg"}></i>
             <div className="UploadName">Upload</div>
           </NavLink>
         </li>
