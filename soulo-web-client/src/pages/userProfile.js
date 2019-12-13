@@ -3,36 +3,35 @@ import "./userProfile.css";
 import "./homePage.css";
 import ScrollContainer from "react-indiana-drag-scroll";
 import Post from "../components/post";
+import Posts from "../components/postList";
+import Loading from "../components/loading";
 import UserDetail from "../components/userDetails";
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       posts: [],
-      user: null
+      userDetails: null
     };
   }
 
   componentDidMount() {
-    const url = window.location.pathname;
-    const id = url.substring(url.lastIndexOf("/") + 1);
-    fetch("/api/users/" + id)
-      .then(res => res.json())
-      .then(user => {
-        this.setState({
-          loading: false,
-          // posts: user.getPosts().map((post, ii) => <Post {...post} key={ii} />),
-          user: <UserDetail {...user} />
-        });
-      })
-      .catch(err => console.log("API ERROR: ", err));
+    setTimeout(() => {
+      this.setState({
+        loading: false,
+        posts: Posts.map((post, ii) => <Post {...post} key={ii} />),
+        userDetails: <UserDetail {...this.props.user} />
+      });
+    }, 500);
   }
 
   render() {
+    console.log(this.state.posts);
     return (
       <div className="MainContainer">
-        <div>{this.state.user}</div>
+        <div> {this.state.loading ? <Loading /> : this.state.userDetails}</div>
         <div className="userAudio">
           <h3>Your Audio</h3>
           <ScrollContainer
@@ -41,7 +40,7 @@ class UserProfile extends React.Component {
             nativeMobileScroll={false}
             className="scroll-container"
           >
-            <div className="userProfilePosts">{this.props.post}</div>
+            <div className="userProfilePosts">{this.state.posts}</div>
           </ScrollContainer>
         </div>
       </div>

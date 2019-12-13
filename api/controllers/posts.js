@@ -20,15 +20,14 @@ router.get("/", (req, res) => {
   Post.findAll({}).then(posts => res.json(posts));
 });
 
-router.post("/:id", (req, res) => {
-  const { id } = req.params;
+router.post("/", (req, res) => {
   Post.create({
     description: req.body.description,
     tag: req.body.tag,
     title: req.body.title,
     playlist: req.body.playlist,
     image: req.body.image,
-    userId: id
+    userId: req.body.id
   })
     .then(post => {
       res.status(201).json(post);
@@ -39,9 +38,24 @@ router.post("/:id", (req, res) => {
     });
 });
 
-router.put("/:id", passport.isAuthenticated(), (req, res) => {
+router.get("/:id", (req, res) => {
   const { id } = req.params;
   Post.findByPk(id).then(post => {
+    if (!post) {
+      return res.sendStatus(404);
+    }
+
+    res.json(post);
+  });
+});
+
+router.put("/", (req, res) => {
+  const id = req.body.userId;
+  Post.findAll({
+    where: {
+      userId: id
+    }
+  }).then(post => {
     if (!post) {
       return res.sendStatus(404);
     }

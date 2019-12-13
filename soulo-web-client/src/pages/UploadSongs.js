@@ -1,3 +1,4 @@
+import auth from "../services/auth";
 import React from "react";
 import storage from "../firebase";
 import { Progress } from "reactstrap";
@@ -18,6 +19,7 @@ class UploadSongs extends React.Component {
       success: false,
       selectedFiles: [],
       urls: null,
+      userId: null,
       imageUrl: ""
     };
   }
@@ -82,42 +84,7 @@ class UploadSongs extends React.Component {
     return true;
   };
 
-  savePost() {
-    fetch("/api/posts/", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        description: this.state.formControls.description,
-        title: this.state.formControls.title,
-        tag: this.state.formControls.tag,
-        playlist: this.state.urls,
-        image: this.state.imageUrl
-      })
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        throw new Error("Post validation");
-      })
-      .then(post => {
-        console.log(post);
-        this.setState({
-          success: true
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({
-          error: true
-        });
-      });
-  }
-  onChangeHandler = event => {
+  onChangeSongsHandler = event => {
     const files = event.target.files;
     if (
       this.maxSelectFile(event) &&
@@ -150,7 +117,6 @@ class UploadSongs extends React.Component {
     toast.error(error);
     event.target.value = null;
 
-    console.log(file);
     this.setState({
       imageFile: file
     });
@@ -188,7 +154,7 @@ class UploadSongs extends React.Component {
     this.setState({ formControls: updatedControls });
   };
 
-  onClickHandler = () => {
+  uploadSongs = () => {
     for (let file of this.state.selectedFiles) {
       const uploadTask = storage.ref(`audio/${file.name}`).put(file);
       uploadTask.on(
@@ -206,6 +172,7 @@ class UploadSongs extends React.Component {
           console.log(error);
         },
         () => {
+          // Complete function
           return storage
             .ref("audio")
             .child(file.name)
@@ -222,11 +189,58 @@ class UploadSongs extends React.Component {
         }
       );
     }
-    this.savePost();
+  };
+
+  savePost = () => {
+    fetch("/api/posts/", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        description: this.state.formControls.description,
+        title: this.state.formControls.title,
+        tag: this.state.formControls.tag,
+        playlist: this.state.urls,
+        image: this.state.imageUrl,
+        userId: this.state.userId
+      })
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Post validation");
+        }
+
+        return response.json();
+      })
+      .then(body => {
+        console.log(body);
+        this.setState({
+          success: true
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          error: true
+        });
+      });
   };
 
   componentDidMount() {
-    console.log(this.props.history.location);
+    fetch("/api/users/")
+      .then(res => res.json())
+      .then(users => {
+        users.forEach(user => {
+          if (user.email === auth.emailAddress) {
+            this.setState({
+              userId: user.id
+            });
+          }
+        });
+      })
+      .catch(err => console.log("API ERROR: ", err));
   }
 
   render() {
@@ -253,7 +267,7 @@ class UploadSongs extends React.Component {
                 type="file"
                 class="form-control"
                 multiple
-                onChange={this.onChangeHandler}
+                onChange={this.onChangeSongsHandler}
               />
             </div>
             <div class="form-group">
@@ -262,6 +276,14 @@ class UploadSongs extends React.Component {
                 {Math.round(this.state.loaded, 2)}%
               </Progress>
             </div>
+            <button
+              type="button"
+              class="btn btn-success btn-block"
+              className="uploadSongButton"
+              onClick={this.uploadSongs}
+            >
+              Upload Songs
+            </button>
             <br />
             <br />
 
@@ -300,7 +322,7 @@ class UploadSongs extends React.Component {
                 type="button"
                 class="btn btn-success btn-block"
                 className="uploadButton"
-                onClick={this.onClickHandler}
+                onClick={this.savePost}
               >
                 Upload
               </button>

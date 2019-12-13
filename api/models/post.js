@@ -24,6 +24,9 @@ module.exports = (sequelize, DataTypes) => {
       },
       tag: {
         type: DataTypes.STRING
+      },
+      userId: {
+        type: DataTypes.INTEGER
       }
     },
     {

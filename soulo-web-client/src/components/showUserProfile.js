@@ -10,14 +10,13 @@ class ShowUserProfile extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.match);
     const { id } = this.props.match.params;
     fetch("/api/users/" + id)
       .then(res => res.json())
       .then(user => {
         this.setState({
-          user: <UserProfile {...user} />,
-          loading: false
+          loading: false,
+          user: user
         });
       })
       .catch(err => {
@@ -26,20 +25,10 @@ class ShowUserProfile extends React.Component {
           notFound: true
         });
       });
-    console.log(this.state.user);
   }
 
   render() {
-    return (
-      <UserProfile
-        name={"Nona"}
-        location={"New York,United States"}
-        about={"A breif description of the User and channel"}
-        profileImage={require("../assets/test.JPG")}
-        followerCount={28}
-        plays={365}
-      />
-    );
+    return <UserProfile user={this.state.user} />;
   }
 }
 

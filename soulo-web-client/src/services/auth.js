@@ -25,6 +25,7 @@ const auth = {
       })
       .then(body => {
         this.isAuthenticated = true;
+        this.emailAddress = email;
         return body;
       });
   },
@@ -45,6 +46,7 @@ const auth = {
         return response.json();
       })
       .then(body => {
+        this.emailAddress = formData.email;
         this.isAuthenticated = true;
         return body;
       });
