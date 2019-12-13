@@ -7,7 +7,7 @@ function User({ firstName, id }) {
     <Link className="nav-link" to={"/profile/" + id}>
       <Card
         title="House"
-        image={require("../assets/test.JPG")}
+        image={require("../assets/IMG_1121.png")}
         caption={firstName}
         subtitle="Live"
       />

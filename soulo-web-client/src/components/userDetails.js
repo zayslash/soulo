@@ -13,7 +13,7 @@ class UserDetail extends React.Component {
         <div className="headerCover">
           <img
             className="profile-img"
-            src={require("../assets/test.JPG")}
+            src={require("../assets/IMG_1121.png")}
             alt="cover-img"
           />
         </div>

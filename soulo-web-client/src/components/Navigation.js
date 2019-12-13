@@ -53,7 +53,7 @@ class Navigation extends React.Component {
           <li className="nav-item tim">
             <NavLink className="" exact to={"/myaccount"}>
               <img
-                src={require("../assets/test.JPG")}
+                src={require("../assets/IMG_1123.png")}
                 className="profilePicture"
               />
               <div className="userProfileName">
@@ -83,7 +83,7 @@ class Navigation extends React.Component {
                     src={require("../assets/test.JPG")}
                     className="profilePicture"
                   />
-                  <div className="userProfileName">Jonathan</div>
+                  {/* <div className="userProfileName">Jonathan</div> */}
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={this.handleClose}>
