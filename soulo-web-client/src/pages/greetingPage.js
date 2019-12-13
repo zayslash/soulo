@@ -3,13 +3,7 @@ import { Slide } from "react-slideshow-image";
 import TextLoop from "react-text-loop";
 import "./greetingPage.css";
 
-const slideImages = [
-  require("../assets/slide1.jpg"),
-  require("../assets/slide2.jpg"),
-  require("../assets/slide3.jpg"),
-  require("../assets/slide4.jpg"),
-  require("../assets/slide5.jpg")
-];
+const slideImages = [require("../assets/slide_2.jpg")];
 
 const properties = {
   duration: 5000,
@@ -55,9 +49,7 @@ function greetingPage() {
         </p>
       </div>
       <div className="Title-text">{/* <AuthButton /> */}</div>
-      <div className="greeting-slides">
-        <Slideshow />
-      </div>
+      <div className="greeting-slides">{/* <Slideshow /> */}</div>
     </div>
   );
 }
