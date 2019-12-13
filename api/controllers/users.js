@@ -14,24 +14,19 @@ router.get("/:id", (req, res) => {
     if (!user) {
       return res.sendStatus(404);
     }
-    user
-      .then(user => {
-        res.json(user);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
+
+    res.json(user);
   });
 });
 
 router.delete("/:id", passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
-  User.findByPk(id).then(post => {
-    if (!post) {
+  User.findByPk(id).then(user => {
+    if (!user) {
       return res.sendStatus(404);
     }
 
-    post.destroy();
+    user.destroy();
     res.sendStatus(204);
   });
 });
