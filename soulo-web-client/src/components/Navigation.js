@@ -22,22 +22,6 @@ class Navigation extends React.Component {
     this.setState({ anchorEl: null });
   };
 
-  // componentDidMount() {
-  //   fetch("/api/users/")
-  //     .then(res => res.json())
-  //     .then(users => {
-  //       users.forEach(user => {
-  //         if (user.email === auth.emailAddress) {
-  //           this.setState({
-  //             name: user.firstName,
-  //             user: user
-  //           });
-  //         }
-  //       });
-  //     })
-  //     .catch(err => console.log("API ERROR: ", err));
-  // }
-
   render() {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3 appContainer">

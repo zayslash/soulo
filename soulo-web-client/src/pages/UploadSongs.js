@@ -19,7 +19,7 @@ class UploadSongs extends React.Component {
       success: false,
       selectedFiles: [],
       urls: null,
-      user: null,
+      userId: null,
       imageUrl: ""
     };
   }
@@ -84,41 +84,6 @@ class UploadSongs extends React.Component {
     return true;
   };
 
-  savePost() {
-    fetch("/api/posts/", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        description: this.state.formControls.description,
-        title: this.state.formControls.title,
-        tag: this.state.formControls.tag,
-        playlist: this.state.urls,
-        image: this.state.imageUrl
-      })
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-
-        throw new Error("Post validation");
-      })
-      .then(post => {
-        console.log(post);
-        this.setState({
-          success: true
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({
-          error: true
-        });
-      });
-  }
   onChangeHandler = event => {
     const files = event.target.files;
     if (
@@ -152,7 +117,6 @@ class UploadSongs extends React.Component {
     toast.error(error);
     event.target.value = null;
 
-    console.log(file);
     this.setState({
       imageFile: file
     });
@@ -190,7 +154,44 @@ class UploadSongs extends React.Component {
     this.setState({ formControls: updatedControls });
   };
 
-  onClickHandler = () => {
+  savePost() {
+    fetch("/api/posts/", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        description: this.state.formControls.description,
+        title: this.state.formControls.title,
+        tag: this.state.formControls.tag,
+        playlist: this.state.urls,
+        image: this.state.imageUrl,
+        userId: this.state.userId
+      })
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+
+        throw new Error("Post validation");
+      })
+      .then(post => {
+        console.log(post);
+        this.setState({
+          success: true
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          error: true
+        });
+      });
+  }
+
+  submitForm = () => {
     for (let file of this.state.selectedFiles) {
       const uploadTask = storage.ref(`audio/${file.name}`).put(file);
       uploadTask.on(
@@ -234,7 +235,7 @@ class UploadSongs extends React.Component {
         users.forEach(user => {
           if (user.email === auth.emailAddress) {
             this.setState({
-              user: user
+              userId: user.id
             });
           }
         });
@@ -243,7 +244,6 @@ class UploadSongs extends React.Component {
   }
 
   render() {
-    console.log(this.state.user);
     return (
       <div class="uploadContainer">
         <div class="row">
@@ -314,7 +314,7 @@ class UploadSongs extends React.Component {
                 type="button"
                 class="btn btn-success btn-block"
                 className="uploadButton"
-                onClick={this.onClickHandler}
+                onClick={this.submitForm}
               >
                 Upload
               </button>

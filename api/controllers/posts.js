@@ -20,8 +20,7 @@ router.get("/", (req, res) => {
   Post.findAll({}).then(posts => res.json(posts));
 });
 
-router.post("/:id", (req, res) => {
-  const { id } = req.params;
+router.post("/", (req, res) => {
   Post.create({
     description: req.body.description,
     tag: req.body.tag,

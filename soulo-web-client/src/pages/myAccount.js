@@ -11,7 +11,6 @@ class MyAccount extends React.Component {
   }
 
   componentDidMount() {
-    console.log(auth.emailAddress);
     fetch("/api/users/")
       .then(res => res.json())
       .then(users => {
@@ -24,7 +23,6 @@ class MyAccount extends React.Component {
         });
       })
       .catch(err => console.log("API ERROR: ", err));
-    console.log(this.state.user);
   }
 
   render() {

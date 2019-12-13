@@ -6,6 +6,7 @@
   width: 70%;
   height: 200px;
   margin: auto;
+  float: left;
 }
 
 .each-slide > div {
