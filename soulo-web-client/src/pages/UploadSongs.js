@@ -1,3 +1,4 @@
+import auth from "../services/auth";
 import React from "react";
 import storage from "../firebase";
 import { Progress } from "reactstrap";
@@ -18,6 +19,7 @@ class UploadSongs extends React.Component {
       success: false,
       selectedFiles: [],
       urls: null,
+      user: null,
       imageUrl: ""
     };
   }
@@ -226,10 +228,22 @@ class UploadSongs extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props.history.location);
+    fetch("/api/users/")
+      .then(res => res.json())
+      .then(users => {
+        users.forEach(user => {
+          if (user.email === auth.emailAddress) {
+            this.setState({
+              user: user
+            });
+          }
+        });
+      })
+      .catch(err => console.log("API ERROR: ", err));
   }
 
   render() {
+    console.log(this.state.user);
     return (
       <div class="uploadContainer">
         <div class="row">

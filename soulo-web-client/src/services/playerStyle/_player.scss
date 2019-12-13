@@ -1,6 +1,8 @@
 @import "variables";
 
 #player {
+  height: 100px;
+
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -11,6 +13,7 @@
   padding: 1rem;
   color: $main-color;
   .middle-part {
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -30,9 +33,9 @@
         height: 2rem;
         line-height: 2rem;
         text-align: center;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         &.play {
-          width: 3rem;
+          width: 4rem;
           height: 3rem;
           line-height: 3rem;
           font-size: 2rem;
@@ -50,7 +53,7 @@
         background-color: $progress-bg;
         border-radius: 2px;
         display: flex;
-        height: 4px;
+        height: 3px;
         width: 100%;
         flex: 1 100%;
         cursor: pointer;

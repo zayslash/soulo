@@ -12,9 +12,18 @@
 
 .HomeContainer {
   /* width: 100%; */
-  position: relative;
-  margin-top: -70px;
+  /* position: relative; */
+  /* margin-top: -70px; */
+  padding-top: 90px;
+  padding-left: 90px;
 }
+
+@media only screen and (max-width: 500px) {
+  .HomeContainer {
+    padding-left: 40px;
+  }
+}
+
 .IconPopulation {
   height: 120px;
   display: flex;

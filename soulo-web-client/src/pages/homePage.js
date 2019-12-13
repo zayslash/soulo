@@ -12,7 +12,6 @@ class HomePage extends React.Component {
       isPlaying: false,
       posts: [],
       users: [],
-      userId: this.props.history.location.id,
       isLoading: true
     };
   }
@@ -23,9 +22,7 @@ class HomePage extends React.Component {
       .then(users => {
         this.setState({
           loading: false,
-          users: users.map((user, ii) => (
-            <User {...user} currentUserId={this.state.userId} key={ii} />
-          ))
+          users: users.map((user, ii) => <User {...user} key={ii} />)
         });
       })
       .catch(err => console.log("API ERROR: ", err));
@@ -52,7 +49,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div className="MainContainer">
+      <div className="HomeContainer">
         <h3>Users</h3>
         <ScrollContainer
           vertical={false}
@@ -103,6 +100,7 @@ class HomePage extends React.Component {
               caption="Point and Shoot"
               image={require("../assets/test.JPG")}
             />
+
             {/* This will be populated with data from the database */}
             {/* {this.state.posts} */}
           </div>

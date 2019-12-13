@@ -10,6 +10,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
+  console.log(id);
   User.findByPk(id).then(user => {
     if (!user) {
       return res.sendStatus(404);

@@ -12,6 +12,7 @@ import ShowUserProfile from "./components/showUserProfile";
 import Player from "./services/player";
 import PrivateRoute from "./components/privateRoute";
 import Navigation from "./components/navigation";
+import MyAccount from "./pages/myAccount";
 
 function Footer() {
   return (
@@ -47,7 +48,8 @@ class App extends React.Component {
             <Switch>
               <PrivateRoute path="/upload" component={UploadSongs} />
               <Route path="/profile/:id" component={ShowUserProfile} />
-              <PrivateRoute path="/profile" component={UserProfile} />
+              <PrivateRoute path="/myaccount" component={MyAccount} />
+              <Route path="/profile" component={UserProfile} />
               <Route path="/home" component={HomePage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/signup" component={SignUpPage} />

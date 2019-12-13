@@ -12,7 +12,6 @@ class LoginPage extends React.Component {
     this.state = {
       userId: null,
       formIsValid: false, //we will use this to track the overall form validity
-
       formControls: {
         email: {
           value: "",
@@ -74,21 +73,24 @@ class LoginPage extends React.Component {
     }
     const { email, password } = formData;
     auth.authenticate(email, password).then(user => {
-      this.setState({ userId: user.id });
+      if (user) {
+        this.setState({ userId: user.id });
+      }
     });
   };
 
   render() {
     if (auth.isAuthenticated) {
+      const { pathname } = this.props.history.location.state.from || "/";
       return (
         <Redirect
           to={{
-            pathname: "/home",
-            id: this.state.userId
+            pathname: pathname
           }}
         />
       );
     }
+
     return (
       <div className="Container">
         <form onSubmit={this.formSubmitHandler}>

@@ -3,14 +3,14 @@ import { NavLink } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import auth from "../services/auth";
 
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       anchorEl: null,
-      id: 1
+      name: "",
+      user: null
     };
   }
 
@@ -21,6 +21,22 @@ class Navigation extends React.Component {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
+
+  // componentDidMount() {
+  //   fetch("/api/users/")
+  //     .then(res => res.json())
+  //     .then(users => {
+  //       users.forEach(user => {
+  //         if (user.email === auth.emailAddress) {
+  //           this.setState({
+  //             name: user.firstName,
+  //             user: user
+  //           });
+  //         }
+  //       });
+  //     })
+  //     .catch(err => console.log("API ERROR: ", err));
+  // }
 
   render() {
     return (
@@ -44,23 +60,21 @@ class Navigation extends React.Component {
           </li>
 
           <li className="nav-item upload">
-            <NavLink
-              className="navbar-brand nav-link2 "
-              exact
-              to={"/upload/" + this.state.id}
-            >
+            <NavLink className="navbar-brand nav-link2 " exact to={"/upload"}>
               <i className={"fa fa-arrow-up uploadImg"}></i>
               <div className="UploadName">Upload</div>
             </NavLink>
           </li>
 
           <li className="nav-item tim">
-            <NavLink className="" exact to={"/profile/" + this.state.id}>
+            <NavLink className="" exact to={"/myaccount"}>
               <img
                 src={require("../assets/test.JPG")}
                 className="profilePicture"
               />
-              <div className="userProfileName">Jonathan</div>
+              <div className="userProfileName">
+                {/* {this.state.user && this.state.name} */}
+              </div>
             </NavLink>
           </li>
 

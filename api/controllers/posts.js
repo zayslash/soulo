@@ -39,6 +39,17 @@ router.post("/:id", (req, res) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+  Post.findByPk(id).then(post => {
+    if (!post) {
+      return res.sendStatus(404);
+    }
+
+    res.json(post);
+  });
+});
+
 router.put("/:id", passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   Post.findByPk(id).then(post => {
