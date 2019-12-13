@@ -1,24 +1,26 @@
 import React from "react";
 
-function UserDetail({ firstName: firstName, lastName: lastName, ...props }) {
+function UserDetail({ firstName, lastName }) {
   return (
     <div>
       <div className="headerCover">
-        <img className="profile-img" src={props.profileImage} alt="cover-img" />
+        <img
+          className="profile-img"
+          src={require("../assets/test.JPG")}
+          alt="cover-img"
+        />
       </div>
       <div className="userInfo">
-        <p>
-          <h1>{firstName + " " + lastName}</h1>
-        </p>
-        <p>{props.location}</p>
+        <h1>{firstName + " " + lastName}</h1>
+        <p>{"New York,United States"}</p>
         <br />
-        <p> {props.about} </p>
+        <p> {"A breif description of the User and channel"} </p>
         <br />
         <div className="userStats">
-          <p>
-            <h2> {props.followerCount} followers</h2>
-            <h2> {props.plays} plays</h2>
-          </p>
+          <div>
+            <h2> {23} followers</h2>
+            <h2> {492} plays</h2>
+          </div>
         </div>
       </div>
     </div>

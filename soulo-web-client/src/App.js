@@ -45,18 +45,6 @@ class App extends React.Component {
         <div className="container-fluid text-center">
           <div className="row justify-content-center">
             <Switch>
-              <Route
-                path="/profile"
-                render={props => (
-                  <UserProfile
-                    {...props}
-                    name={"Jonathan"}
-                    location={"New York,United States"}
-                    about={"A breif description of the User and channel"}
-                    profileImage={require("./assets/test.JPG")}
-                  />
-                )}
-              />
               <PrivateRoute path="/upload" component={UploadSongs} />
               <Route path="/profile/:id" component={ShowUserProfile} />
               <Route path="/profile" component={UserProfile} />
