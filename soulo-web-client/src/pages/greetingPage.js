@@ -40,18 +40,20 @@ const Slideshow = () => {
 
 function greetingPage() {
   return (
-    <div className="MainContainer">
-      <h1>
-        Create your own{" "}
-        <TextLoop
-          children={["radio", "podcast", "DJ", "marketing", "show host"]}
-        />
-        {""} Experience
-      </h1>
-      <p>
-        Sign up and deploy to our mobile app where listeners can subscribe and
-        tune in to your shows.
-      </p>
+    <div className="greetingsContainer">
+      <div className="greetingNote">
+        <h1>
+          Create your own{" "}
+          <TextLoop
+            children={["radio", "podcast", "DJ", "marketing", "show host"]}
+          />
+          {""} Experience
+        </h1>
+        <p>
+          Sign up and deploy to our mobile app where listeners can subscribe and
+          tune in to your shows.
+        </p>
+      </div>
       <div className="Title-text">{/* <AuthButton /> */}</div>
       <div className="greeting-slides">
         <Slideshow />
