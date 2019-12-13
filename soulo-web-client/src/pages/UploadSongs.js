@@ -276,6 +276,14 @@ class UploadSongs extends React.Component {
                 {Math.round(this.state.loaded, 2)}%
               </Progress>
             </div>
+            <button
+              type="button"
+              class="btn btn-success btn-block"
+              className="uploadSongButton"
+              onClick={this.uploadSongs}
+            >
+              Upload Songs
+            </button>
             <br />
             <br />
 
@@ -320,15 +328,6 @@ class UploadSongs extends React.Component {
               </button>
             </form>
           </div>
-
-          <button
-            type="button"
-            class="btn btn-success btn-block"
-            className="uploadButton"
-            onClick={this.uploadSongs}
-          >
-            Upload Songs
-          </button>
         </div>
       </div>
     );
