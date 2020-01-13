@@ -1,4 +1,5 @@
 # soulo
+[![Run on Repl.it](https://repl.it/badge/github/zayslash/soulo)](https://repl.it/github/zayslash/soulo)
 <h4>Live radio sharing application</h4>
 
 <h1>“Soulo” - App</h1>
