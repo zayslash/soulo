@@ -17,9 +17,6 @@
 
  
  
-<img style="float:left;" padding="50px" width="33%" alt="Screen Shot 2019-10-31 at 4 56 15 PM" src="https://user-images.githubusercontent.com/30443170/128796869-d61941af-e229-4b1e-bde9-a1fc6d1746d3.png">
-
-
  
 <img class="column" width="33%" alt="Screen Shot 2019-12-15 at 4 19 02 PM" src="https://user-images.githubusercontent.com/30443170/128796929-6c33746b-67e8-4b33-9884-b86e9ca13116.png">
  
